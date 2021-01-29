@@ -1,0 +1,55 @@
+.navbar-container{
+    width: 100%;
+    height: 40px;
+    background-color:  rgba(0, 0, 0, 0.7);
+}
+
+
+.nav-title{
+    display: flex;
+    color: white;
+    font-size: 40px;
+    margin-right: 5%;
+    margin-left: 3%;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1.00px
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.engineers-music-rules{
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-photo{
+    height: 40px;
+}
+.nav-name-title{
+    margin-top: 5%;
+    margin-left: 7%;
+    margin-right: 9%;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: .20px
+}
+.nav-engineer{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    
+}
+.music-rules-btn{
+    font-size: 30px;
+    color: white;
+    border-radius: 3px;
+    font-weight: 900;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1.00px;
+    background-color:  rgba(0, 0, 0, 0.000001);
+    cursor: pointer;
+    font-family: Marker Felt, fantasy;
+}

@@ -1,0 +1,45 @@
+{
+  "name": "capicua",
+  "version": "1.0.0",
+  "description": "## Background and Overview",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "server:debug": "nodemon --inspect server.js",
+    "start": "node server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilo161/capicua.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilo161/capicua/issues"
+  },
+  "homepage": "https://github.com/ilo161/capicua#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "config.json": "0.0.4",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.19",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "socket.io": "^3.0.4",
+    "tone": "^14.7.58",
+    "validator": "^13.5.1",
+    "ws": "^7.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "type": "module"
+}
