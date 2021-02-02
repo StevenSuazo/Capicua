@@ -47,7 +47,8 @@ class Game extends React.Component {
 
     constructor(props){
         super(props)
-        const board = new BoardObject(axiosPlayerObj, 900)
+        // debugger
+        const board = new BoardObject(props.gamePlayers, 900)
        
         this.state = {
             board: board,
@@ -60,6 +61,7 @@ class Game extends React.Component {
         this.hasAiGone = false;
         this.oldArenaLen = undefined;
         this.oldTimeIds = [];
+        // debugger
     }
 
     
@@ -121,19 +123,17 @@ class Game extends React.Component {
 
     }
 
-    restartGame(e, isNewGame = undefined) {
+    restartGame(isNewGame = undefined) {
 
         //start a brand new game with everything reset
         if(isNewGame){
             // debugger
-            this.setState({ board: new BoardObject(axiosPlayerObj, 900) })    
+            this.setState({ board: new BoardObject(this.props.gamePlayers, 900) })    
         } else {
             // debugger
             // continue on to next round.
             this.previousPlayersArr = this.state.board.players;
-            const board = new BoardObject(axiosPlayerObj, 900)
-
-            
+            const board = new BoardObject(this.props.gamePlayers, 900)
             this.giveBackPointsToPlayers(board);
             this.setState({ board: board })
         }
@@ -247,11 +247,11 @@ class Game extends React.Component {
             const text2 = `Total Points: ${this.state.board.winningPlayer.points}`
 
             button = this.state.board.lockedGame ? 
-                <button className="modal-win-button" onClick={(e) => this.countdown(e, true)}>Next Round</button> :
+                <button className="modal-win-button" onClick={<Countdown restartGame={this.restartGame} endGame={endGame} />}>Next Round</button> :
             null
 
             endGameButton = endGame ? <button className="modal-win-button" 
-                onClick={(e) => this.countdown()}>Gameover - Play Again?</button> :
+                onClick={this.restartGame}>Gameover - Play Again?</button> :
             null
                 modal =
                 <div className='modal-float-container-win'>
@@ -260,9 +260,7 @@ class Game extends React.Component {
                         <div className='modal-content'>
                             <p>{text}</p>
                             <p>{text2}</p>
-                            <Countdown restartGame={this.restartGame} endGame={endGame} />
-                            {/* {endGameButton ? endGameButton : button} */}
-                            
+                            {endGameButton ? endGameButton : <Countdown restartGame={this.restartGame} endGame={endGame} />}
                         </div>
                         <img className="capicua-domino" src={allDominos["cd"]}></img>
                     </div>
@@ -277,10 +275,7 @@ class Game extends React.Component {
                     { this.state.board ? <Board board={this.state.board} updateGame={this.updateGame} /> : null }
                     <div className="flex-col-start sidebar-occupy-width">
 
-                        <Chat key={"chat"}/>
-                            
-
-                        {/* <Score board={this.state.board} key={999}/> */}
+                        <Chat key={"chat"} players={this.state.board.players}/>
                         <Score board={this.state.board} key={999}/>
                     </div>
                 </div>

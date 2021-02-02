@@ -20,8 +20,6 @@ class Board extends React.Component {
         // const
     }
 
-
-
     // componentDidUpdate(prevProps){
     //     let prevPlayer = prevProps.board.currentPlayer.username;
     //     let nextPlayer = this.props.board.currentPlayer.username;
@@ -31,13 +29,24 @@ class Board extends React.Component {
     //     } 
     // }
 
+    findPlayer = () => {
+        let num;
+        for (let i = 0; i < this.props.board.players.length; i++) {
+            if (this.props.board.players[i] === this.props.board.currentPlayer) {
+                
+                num = i;
+            }
+        }
+        return num;
+    }
 
     render(){
         const boardDimen = 900;
         const boneWidth = 30;
-        const boneHeight = 60;
+        const boneHeight = 59;
         const boneIsRevYPos = (boneWidth / 2);
         const boneNotRevYPos = ((boneWidth / 2) * 3);
+        const thisPlayerIdx = this.findPlayer();
 
         const {board} = this.props;
 
@@ -52,7 +61,6 @@ class Board extends React.Component {
 
                     // offsetX={boneWidth / 2}
                     // offsetY={boneHeight / 2}
-
         
 
         // these 3 lines are required to center the arena in the middle of the board
@@ -128,7 +136,7 @@ class Board extends React.Component {
                         <Hand offSetCenter={offSetCenter} board={board}
                         boneWidth={boneWidth} boneHeight={boneHeight} 
                         updateGame={this.props.updateGame} allDominos={allDominos}
-                        boneValToString={boneValToString}  />
+                        boneValToString={boneValToString} thisPlayerIdx={thisPlayerIdx}/>
                     </Group>
                         <Boneyard boneyardLength={board.boneyard.bones.length}
                         //  playerLength={board.players.length} 

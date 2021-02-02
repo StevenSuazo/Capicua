@@ -24,6 +24,7 @@ class Board extends React.Component {
     findPlayerOnThisSocket = () => {
             let num;
 
+            debugger
             for(let i = 0; i < this.props.gameState.players.length; i++){
                 if (this.props.gameState.players[i].id === this.props.socket.id){
 

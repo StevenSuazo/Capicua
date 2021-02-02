@@ -9,9 +9,14 @@ const URL = 'ws://localhost:3001'
 // not sure why socket server needs to be on a different localhost from React
 
 class Chat extends Component {
-  state = {
-    name: 'Guest',
-    messages: [],
+  constructor(props){
+    super(props);
+
+    this.state = {
+      name: this.props.players[0].username,
+      messages: [],
+    };
+
   }
 
   ws = new WebSocket(URL)

@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ilo161/capicua#readme",
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "axios": "^0.21.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",

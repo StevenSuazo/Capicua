@@ -22,7 +22,7 @@ class Boneyard extends React.Component{
             drawImageToggle : false,
             allPlayers: undefined,
             textProps: undefined,
-            textPropsBY:this.props.boneyardLength
+            textPropsBY:undefined
         }
         this.currPlayerIdx = undefined;
         
@@ -67,23 +67,27 @@ class Boneyard extends React.Component{
     componentDidUpdate(prevProps){
         // this.showDrawAlert()
 
-        if (this.props.boneyardLength < (28 - (this.props.players.length * 7)) && (prevProps.boneyardLength !== this.props.boneyardLength)) {
+        if (this.props.boneyardLength <= (28 - (this.props.players.length * 7)) && (prevProps.boneyardLength !== this.props.boneyardLength)) {
             let textPropsBY = Object.assign({},this.state.textPropsBY);
             textPropsBY.text = `${this.props.boneyardLength}`
             
             // debugger
             this.diff = prevProps.boneyardLength - this.props.boneyardLength
 
-            if(this.state.allPlayers){
+            if (this.diff <= 0) {
+                this.setState({ textPropsBY })
+            }
+
+            if (this.state.allPlayers.length > 0 && this.diff > 0){
                 this.currPlayerIdx = this.findPlayerByIndex()
                 let textProps;
                 let userName;
 
-                if (this.state.allPlayers[this.currPlayerIdx].username.length <= 6){
+                // if (this.state.allPlayers[this.currPlayerIdx].username.length <= 6){
                     userName = `     ${this.state.allPlayers[this.currPlayerIdx].username} \n    draws ${this.diff}`
-                } else {
-                    userName = `${this.state.allPlayers[this.currPlayerIdx].username} \n   draws ${this.diff}`
-                }
+                // } else {
+                    // userName = `${this.state.allPlayers[this.currPlayerIdx].username} draws ${this.diff}`
+                // }
 
                 textProps = {
                     x: 105,
@@ -192,7 +196,8 @@ class Boneyard extends React.Component{
 
         return (
         <>
-                {drawImageToggle ?
+                {this.diff > 0 ?
+                drawImageToggle ?
                     <Group x={this.state.drawImagexA} y={this.state.drawImageyA}>
 
                         <Image
@@ -201,7 +206,7 @@ class Boneyard extends React.Component{
                                 this.imageNodeA = node; }} />
                             
                         <Text {...this.state.textProps} />
-                    </Group> : null }
+                    </Group> : null : null}
                 <Group x={this.state.drawImagexB} y={this.state.drawImageyB}>
 
                     <Image

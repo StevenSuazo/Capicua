@@ -219,7 +219,7 @@ class Board {
 
         // TESTING PURPOSES ONLY DELETE LATER //
         console.log("*************");
-        debugger
+        // debugger
         console.log("NEW CURRENT PLAYER && Hand");
         console.log(this.currentPlayer.username);
         this.currentPlayer.revealHand()

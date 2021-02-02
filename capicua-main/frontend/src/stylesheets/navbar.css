@@ -12,7 +12,8 @@
     margin-right: 5%;
     margin-left: 3%;
     -webkit-text-stroke-color: black;
-    -webkit-text-stroke-width: 1.00px
+    -webkit-text-stroke-width: 1.00px;
+    text-decoration: transparent;
 }
 
 .navbar{

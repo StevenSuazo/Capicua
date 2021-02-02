@@ -6,6 +6,12 @@ import {constructBone} from "./constructBone";
 
 class OtherHands extends React.Component {
 
+    // componentDidUpdate(prevProps){
+    //     if (){
+
+    //     }
+    // }
+
 
     render() {
         const {board, boardDimen, boneWidth,
@@ -113,7 +119,7 @@ class OtherHands extends React.Component {
 
         const allPlayers = allPlayersDataObj(board.players.length, currPlayerIdx)
 
-        const generateHands = (numPlayers, websocketsId) => {
+        const generateHands = (numPlayers) => {
                 // debugger
             
             // const player2Idx = ((currPlayerIdx + 1) % board.players.length);
@@ -126,6 +132,7 @@ class OtherHands extends React.Component {
             const player2Idx = ((currPlayerIdx + 1) % board.players.length);
             const player3Idx = ((currPlayerIdx + 2) % board.players.length);
             const player4Idx = ((currPlayerIdx + 3) % board.players.length);
+            // debugger
             switch(numPlayers){
                 case 2:
         

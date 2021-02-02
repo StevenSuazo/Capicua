@@ -50,7 +50,7 @@ class Splash extends React.Component {
                           totalPlayers: 2
                         }
                         }}>
-                <button className="start-btn"> <span>1 Player <br></br>vs A.I.</span></button>
+                <button className="start-btn"> 1 Player <br></br>vs A.I.</button>
               </Link>
               <Link to={{pathname: `/join2playergame`,
                         state: {
@@ -61,7 +61,7 @@ class Splash extends React.Component {
                           totalPlayers: 2
                         }
                         }}>
-              <button className="start-btn"> <span>2-Player Online</span></button>
+              <button className="start-btn-2 start-btn"> <span>2-Player Online</span></button>
               </Link>
               <Link to={{pathname: `/join4playergame`,
                         state: {
@@ -72,7 +72,7 @@ class Splash extends React.Component {
                           totalPlayers: 4
                         }
                         }}>
-              <button className="start-btn"> <span>4-Player Online</span></button>
+              <button className="start-btn-2 start-btn"> <span>4-Player Online</span></button>
               </Link>
             </div>
           </form>
@@ -106,13 +106,13 @@ class Splash extends React.Component {
             </a>
             <h2 className="name-title">Steven Suazo</h2>
             <div className="flex-row-start evenly">
-              <a className="hireMe" href="https://github.com/ilo161/" target="_blank">
+              <a className="hireMe" href="https://github.com/StevenSuazo" target="_blank">
                 {github}
               </a>
               <a href="" target="_blank">
                 <img className="hireMe" src={hireMe} alt="hire me image"></img>
               </a>
-              <a className="hireMe" href="https://www.linkedin.com/in/sergio-medina-36937668/" target="_blank">
+              <a className="hireMe" href="https://www.linkedin.com/in/steven-suazo-b71394143/" target="_blank">
                 {linkedIn}
               </a>
               
@@ -124,13 +124,13 @@ class Splash extends React.Component {
             </a>
             <h2 className="name-title">Chris Lopez</h2>
             <div className="flex-row-start evenly">
-              <a className="hireMe" href="https://github.com/ilo161/" target="_blank">
+              <a className="hireMe" href="https://github.com/crslpz" target="_blank">
                 {github}
               </a>
               <a href="" target="_blank">
                 <img className="hireMe" src={hireMe} alt="hire me image"></img>
               </a>
-              <a className="hireMe" href="https://www.linkedin.com/in/sergio-medina-36937668/" target="_blank">
+              <a className="hireMe" href="https://www.linkedin.com/in/chris-lopez-67aa27201/" target="_blank">
                 {linkedIn}
               </a>
               
@@ -142,13 +142,13 @@ class Splash extends React.Component {
             </a>
             <h2 className="name-title">Yangel Aguilera </h2>
             <div className="flex-row-start evenly">
-              <a className="hireMe" href="https://github.com/ilo161/" target="_blank">
+              <a className="hireMe" href="https://github.com/yangel20" target="_blank">
                 {github}
               </a>
               <a href="" target="_blank">
                 <img className="hireMe" src={hireMe} alt="hire me image"></img>
               </a>
-              <a className="hireMe" href="https://www.linkedin.com/in/sergio-medina-36937668/" target="_blank">
+              <a className="hireMe" href="https://www.linkedin.com/in/yangel-aguilera-558a17173/" target="_blank">
                 {linkedIn}
               </a>
               

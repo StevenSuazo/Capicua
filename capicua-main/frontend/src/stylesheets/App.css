@@ -68,14 +68,16 @@
 .modal-container-win{
     
   font-size: 20px;
-  color: rgb(248, 160, 24);
+  color: rgb(84, 180, 198);
   z-index: 1;
   font-family: Marker Felt, fantasy;
-  background-color: rgb(65, 77, 123);
-  border: 3px solid rgb(233, 172, 150);
+  background-color: rgb(181, 82, 38);
+  border: 3px solid rgb(84, 180, 198);
 }
 
+
 .modal-content{
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;

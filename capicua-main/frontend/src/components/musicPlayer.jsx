@@ -65,7 +65,7 @@ class Music extends React.Component {
           }
     }
     soundCheck(event) {
-        debugger
+        // debugger
         this.setState({value: event.target.value});
         this.player.volume = event.target.value //this.state.value
         console.log(this.state.value)
@@ -124,7 +124,6 @@ class Music extends React.Component {
             { id: 2, title: "Mild" },
             { id: 3, title: "Caliente"}
         ].map(item => {
-            {/* this is where i change and insert a photo */ }
 
             return (
                 this.state.selectedTrack === item.title ?
@@ -145,6 +144,7 @@ class Music extends React.Component {
                 </li>
             )
         })
+        // debugger
         musicList.push(divPlayBtn)
 
     

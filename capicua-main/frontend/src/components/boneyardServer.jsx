@@ -67,10 +67,6 @@ class Boneyard extends React.Component{
         // this.showDrawAlert()
         debugger
         if (this.props.boneyardLength <= (28 - (this.props.players.length * 7)) && (prevProps.boneyardLength !== this.props.boneyardLength)) {
-           
-
-
-            
             let textPropsBY = Object.assign({},this.state.textPropsBY);
             textPropsBY.text = `${this.props.boneyardLength}`
             

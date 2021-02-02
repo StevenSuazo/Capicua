@@ -115,8 +115,8 @@ class Join extends React.Component{
     let truncated; 
     return e => {
       // if(this.state.username !== e.currentTarget.value){
-          if(e.currentTarget.value.length > 12){
-            truncated = truncate(e.currentTarget.value, 12);
+          if(e.currentTarget.value.length > 6){
+            truncated = truncate(e.currentTarget.value, 6);
         } else if(e.currentTarget.value.length > 0){
             this.setState({[field]: truncated ? capitalize(truncated) : capitalize(e.currentTarget.value)})
         }else{
@@ -239,15 +239,14 @@ class Join extends React.Component{
   }
 
   generateAiPlayers() {
+    // debugger
     let players = []
 
        players.push({username: capitalize(this.state.username)})
 
-        const superHeroes = ["Peter Parker", "Bruce Wayne", "Clark Kent", "Diane Prince", 
-          "Barbara Gordon", "Kara Danvers", "Carol Danvers", "Wally West",
-          "Jon Stewart", "Virgil Hawkins"]
-
-        // const superHeroes = ["Peter Parker", "Bruce Wayne", "Clark Kent"]
+        const aiNames = ["Juan", "Moana", "Diane", "Suaz",
+          "Carlos", "Kora", "Wally", "Chris", "Drake", "Nilo",
+          "Virgil", "Luffy", "Casca", "Mai", "Mia"]
 
           let aiPlayer;
           const existingUsernames = {}
@@ -259,14 +258,14 @@ class Join extends React.Component{
           
           
           for(let i = 0; i < this.state.numAiPlayers; i++){
-              let randomIdx = Math.floor(Math.random() * superHeroes.length);
-              let aiUsername = superHeroes[randomIdx];
+              let randomIdx = Math.floor(Math.random() * aiNames.length);
+              let aiUsername = aiNames[randomIdx];
               aiPlayer = {username: aiUsername, isAi: true}
             
               //hash access solution
                 while(existingUsernames[aiPlayer.username.toLowerCase()] === aiPlayer.username.toLowerCase()){
-                    randomIdx = Math.floor(Math.random() * superHeroes.length);
-                    aiUsername = superHeroes[randomIdx];
+                    randomIdx = Math.floor(Math.random() * aiNames.length);
+                    aiUsername = aiNames[randomIdx];
                     aiPlayer = {username: aiUsername, isAi: true}
                 }
 
@@ -280,7 +279,7 @@ class Join extends React.Component{
           // })
           this.setState({players: players})
 
-
+          // debugger
           
 
       }
@@ -465,7 +464,8 @@ class Join extends React.Component{
                 if(this.state.gameState){
                     return(<GameViewComponent socket={this.socket} gameState={this.state.gameState}/>)
                 } else if (!this.state.isOnline && this.state.players){
-                  debugger
+                  // debugger
+                  
                 }
 
                 break;

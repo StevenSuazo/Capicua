@@ -28,19 +28,19 @@ class YourTurn extends React.Component {
     this.loadImage();
     switch (this.props.players.length) {
       case 2:
-        this.textFor0 = { x: 430, y: 785, text: this.props.players[0].username, fontSize: 30 };
-        this.textFor1 = { x: 100, y: 400, rotation: 90, text: this.props.players[1].username, fontSize: 20 };
+        this.textFor0 = { x: 430, y: 785, text: this.props.players[0].username, fontSize: 30, fill: "white" };
+        this.textFor1 = { x: 100, y: 400, rotation: 90, text: this.props.players[1].username, fontSize: 20, fill: "white" };
         break;
       case 3:
-        this.textFor0 = { x: 430, y: 785, text: this.props.players[0].username, fontSize: 30 };
-        this.textFor1 = { x: 100, y: 400, rotation: 90, text: this.props.players[1].username, fontSize: 20 };
-        this.textFor2 = { x: 400, y: 70, text: this.props.players[2].username, fontSize: 20 };
+        this.textFor0 = { x: 430, y: 785, text: this.props.players[0].username, fontSize: 30, fill: "white" };
+        this.textFor1 = { x: 100, y: 400, rotation: 90, text: this.props.players[1].username, fontSize: 20, fill: "white" };
+        this.textFor2 = { x: 400, y: 70, text: this.props.players[2].username, fontSize: 20, fill: "white" };
         break;
       case 4:
-        this.textFor0 = { x: 430, y: 785, text: this.props.players[0].username, fontSize: 30 };
-        this.textFor1 = { x: 100, y: 400, rotation: 90, text: this.props.players[1].username, fontSize: 20 };
-        this.textFor2 = { x: 400, y: 70, text: this.props.players[2].username, fontSize: 20 };
-        this.textFor3 = { x: 810, y: 490, rotation: 270, text: this.props.players[3].username, fontSize: 20 };
+        this.textFor0 = { x: 430, y: 785, text: this.props.players[0].username, fontSize: 30, fill: "white" };
+        this.textFor1 = { x: 100, y: 400, rotation: 90, text: this.props.players[1].username, fontSize: 20, fill: "white" };
+        this.textFor2 = { x: 400, y: 70, text: this.props.players[2].username, fontSize: 20, fill: "white" };
+        this.textFor3 = { x: 810, y: 490, rotation: 270, text: this.props.players[3].username, fontSize: 20, fill: "white" };
         break;
       default: 
         break;

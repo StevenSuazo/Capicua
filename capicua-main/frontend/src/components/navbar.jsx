@@ -6,6 +6,7 @@ import yangel_photo from '../assets/engineers/yangel-capicua.jpeg';
 import '../stylesheets/navbar.css';
 import '../stylesheets/modal.css';
 import Music from './musicPlayer';
+import { Link } from "react-router-dom";
 
 class Navbar extends React.Component {
     
@@ -25,7 +26,7 @@ class Navbar extends React.Component {
         return(
             <div className="navbar-container flex-row-start">
                 <nav className="navbar">
-                     <h2 className="nav-title">capicua</h2>
+                     <Link className="nav-title" to="/">capicua</Link>
                      <div className="engineers-music-rules">
                     
                         <div className="nav-engineer" >
@@ -54,7 +55,7 @@ class Navbar extends React.Component {
                         </div>
                      </div>
                      <Music/>
-                        <button className="music-rules-btn" onClick={this.showModal} >Rule's</button>
+                        <button className="music-rules-btn" onClick={this.showModal} >Rule</button>
                         <div className="modal-container">
                             <div className="modal">
                                 <div className="rules-music-container">

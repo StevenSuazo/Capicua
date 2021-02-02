@@ -121,6 +121,7 @@ class Bone extends React.Component {
       
       // if (!this.props.inArena && yCoord < -50) {
       // if
+      // debugger
       if (this.state.board.arena.length <= 15){
         if (yCoord < -50) {
 

@@ -59,17 +59,17 @@
     padding-top:5px;
     font-weight: 900;
     font-size: 17px;
-
+    font-family: Marker Felt, fantasy;
     width: 100px;
     height: 50px;
     border-radius: 25px;
     background-color: rgb(186, 31, 49);
 }
-.start-btn:hover span {display:none}
-.start-btn:hover::after{
+.start-btn-2:hover span {display:none}
+.start-btn-2:hover::after{
     font-weight: 900;
     font-size: 17px;
-    content:"You got this!";
+    content:"in progress!";
 }
 
 .developers-title{
@@ -168,4 +168,7 @@
     height: 48px;
 filter: invert(100%) sepia(84%) saturate(4267%) hue-rotate(354deg) brightness(106%) contrast(105%);
 
+}
+.hireMe:active {
+    color: rgb(186, 31, 49);
 }

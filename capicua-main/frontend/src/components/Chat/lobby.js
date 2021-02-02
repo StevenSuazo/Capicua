@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import { Link } from "react-router-dom";
 import './lobby.css';
 import bodega from "../../assets/img/La_Bodega.jpg"
 
@@ -6,8 +7,11 @@ const Lobby = (props) => {
   let playerDisconnected;
   let players, totalPlayers, joinOrCreate, allUsernames;
   let buttonText;
+  let gamePlayers = props.players;
+
   const {isOnline} = props;
 
+  // debugger
   if (props.playerDisconnected){
       playerDisconnected = props.playerDisconnected;
   } else {
@@ -63,17 +67,10 @@ const Lobby = (props) => {
           </button> 
           : 
           <p className="attentive-voice">Waiting on Host to start the game</p>
-          :
-          <button className={'button mt-20 server-start-btn'}
-            type="submit"
-            onClick={props.handleGameStart}
-            >{"testing no click"}
-          </button>
-          
+            : <Link to={{ pathname: `/play_game`, state: { players: gamePlayers} }}> 
+              <button className={'button mt-20 server-start-btn'}>{"Start Game"}</button>
+            </Link>
           } 
-
-
-
           <div className='flex-row-center'>
             <div className="lds-ripple"><div></div><div></div></div>
           </div>
