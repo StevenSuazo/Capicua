@@ -19,7 +19,7 @@ class Room {
     }
 
     createGame(){
-        console.log("new room new multiplayer game")
+        // console.log("new room new multiplayer game")
         this.board = new BoardObject(this.players, 900, this.roomName, this.io)
 
         // console.log(this.board)

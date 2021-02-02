@@ -58,7 +58,7 @@ class Player {
 
     drawBone(){
       this.hand.push(this.board.boneyard.bones.pop())
-      console.log(`${this.username} drew ${this.hand[this.hand.length-1].boneVal}`)
+      // console.log(`${this.username} drew ${this.hand[this.hand.length-1].boneVal}`)
     }
 
     
@@ -68,9 +68,9 @@ class Player {
           handString += `[${bone.boneVal[0]}, ${bone.boneVal[1]}], `
         })
 
-        console.log(`${this.username}'s Hand: `)
+        // console.log(`${this.username}'s Hand: `)
 
-        console.log(`${handString}`)
+        // console.log(`${handString}`)
         
     }
 

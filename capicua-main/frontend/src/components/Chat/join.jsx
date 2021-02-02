@@ -40,9 +40,6 @@ class Join extends React.Component{
 
     this.socket.on('connect', socket => {
 
-      console.log("hooray")
-
-      
       this.socket.on("changePhase", this.handlePhaseChange)
       this.socket.on("receiveGameState", this.receiveGameState)
       
@@ -75,12 +72,11 @@ class Join extends React.Component{
   }
 
   update(field){
-    // console.log(this.state.username)
      return e => this.setState({[field]: e.currentTarget.value})
   }
 
   handleStartSolo() {
-    debugger
+    // debugger
     this.socket.emit("startSoloGame", {username: this.state.username});
     this.setState({ roomName: this.socket.id });
   }
@@ -90,17 +86,17 @@ class Join extends React.Component{
   }
 
   handlePhaseChange(phase){
-    debugger
+    // debugger
     this.setState({phase: phase})
-    debugger
+    // debugger
     // this.receiveGameState()
 
   }
 
   receiveGameState(gameState) {
-    debugger
+    // debugger
     this.setState({ gameState: gameState });
-    debugger
+    // debugger
   }
 
     render(){
@@ -155,7 +151,7 @@ class Join extends React.Component{
                 )
 
               case "soloLobby":
-                debugger
+                // debugger
 
                 if(this.state.gameState){
                     return (

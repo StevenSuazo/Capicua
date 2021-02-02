@@ -51,7 +51,7 @@ class Boneyard extends React.Component{
     }
 
     componentWillUnmount() {
-        debugger
+        // debugger
         this.image.removeEventListener('load', this.handleLoad);
         clearTimeout(this.oldTimerId)
     }

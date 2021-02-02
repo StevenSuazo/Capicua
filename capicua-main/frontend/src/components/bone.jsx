@@ -102,8 +102,8 @@ class Bone extends React.Component {
 
       const yCoord = e.target.attrs.y
       
-      console.log(`BoneIdxIs: ${e.target.attrs.boneIdx}`)
-      console.log(`konvaBoneIdxIs: ${boneIdx}`)
+      // console.log(`BoneIdxIs: ${e.target.attrs.boneIdx}`)
+      // console.log(`konvaBoneIdxIs: ${boneIdx}`)
       // console.log(`Center: ${e.target.attrs.offSetCenter}`)
       // console.log(`X: ${e.target.attrs.x}`)
       // console.log(`Y: ${e.target.attrs.y}`)

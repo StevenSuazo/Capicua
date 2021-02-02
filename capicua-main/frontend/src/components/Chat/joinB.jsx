@@ -68,9 +68,6 @@ class Join extends React.Component{
       this.socket = io(HOST);
       this.socket.on('connect', socket => {
 
-      console.log("hooray")
-
-      
       this.socket.on("changePhase", this.handlePhaseChange)
       this.socket.on("receiveGameState", this.receiveGameState)
       this.socket.on("AiAutoPlayData", this.receiveAiAutoPlayData)
@@ -233,8 +230,6 @@ class Join extends React.Component{
   }
 
   handleDisconnect(){
-    console.log(this.socket.id)
-    console.log("has left Join B")
     // this.socket.emit("disconnect", this.socket.id)
   }
 

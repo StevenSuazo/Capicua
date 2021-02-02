@@ -68,7 +68,7 @@ class Music extends React.Component {
         // debugger
         this.setState({value: event.target.value});
         this.player.volume = event.target.value //this.state.value
-        console.log(this.state.value)
+        // console.log(this.state.value)
         this.state.value <= 0.09 ? this.player.muted = true : this.player.muted = false
     }
 
@@ -99,23 +99,23 @@ class Music extends React.Component {
             }
         </div>
 
-        const mute = <div>
+        // const mute = <div>
 
-                { this.state.value === 0.1 ?
-                     <div className="vol-icon" onClick={() => this.setState({ value: "1" }) && console.log("pressed")}>
-                     {volMuteBtn}
-                    </div> 
-                    :
-                    <div className="vol-icon" onClick={() => this.setState({ value: "0.1" }) && console.log("pressed")}>
-                     {volBtn}
-                    </div> 
-                }
+        //         { this.state.value === 0.1 ?
+        //              <div className="vol-icon" onClick={() => this.setState({ value: "1" }) && console.log("pressed")}>
+        //              {volMuteBtn}
+        //             </div> 
+        //             :
+        //             <div className="vol-icon" onClick={() => this.setState({ value: "0.1" }) && console.log("pressed")}>
+        //              {volBtn}
+        //             </div> 
+        //         }
             
-            {/* { this.state.muted === false ?
-            <div className="vol-icon" onClick={() => this.player.muted = true && this.setState({muted: true})} >{volBtn}</div>
-            :
-            <div className="vol-icon" onClick={() => (this.player.muted = false) && this.setState({muted: false})} >{volMuteBtn}</div>} */}
-        </div>
+        //     {/* { this.state.muted === false ?
+        //     <div className="vol-icon" onClick={() => this.player.muted = true && this.setState({muted: true})} >{volBtn}</div>
+        //     :
+        //     <div className="vol-icon" onClick={() => (this.player.muted = false) && this.setState({muted: false})} >{volMuteBtn}</div>} */}
+        // </div>
 
         // faPlay
         // <i class="fas fa-play"></i>

@@ -32,7 +32,7 @@ class Boneyard {
         })
 
         return allBones
-        debugger
+        // debugger
     }
 
 

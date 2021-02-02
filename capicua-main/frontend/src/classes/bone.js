@@ -17,7 +17,7 @@ class Bone {
         this.topNumber = botTemp;
         this.bottomNumber = topTemp;
         this.isReversed = true;
-        console.log("bone Reversed")
+        // console.log("bone Reversed")
     }
 }
 

@@ -11,7 +11,6 @@ app.get("/", (req, res) => {
   });
 
 // app.get("/join2playergame", (req,res) => {
-//   console.log("2")
 // })  
 
 // const mongoose = require("mongoose");
@@ -95,7 +94,6 @@ let roomAtSocket = {}
 
 
 io.on('connection', socket => { 
-  console.log("Connected to Socket yay! Socket id: " + socket.id);
 
   socket.on("createRoom", (data) => {
     let roomName = data.roomName;
@@ -112,10 +110,6 @@ io.on('connection', socket => {
       //total number of expected players
       let numPlayers = data.numPlayers;
 
-
-      // console.log(roomName)
-      // console.log(username)
-      // console.log(numPlayers)
 
       socket.join(roomName);
       roomAtSocket[id] = roomName;
@@ -136,7 +130,6 @@ io.on('connection', socket => {
     
 
       if (!rooms[roomName]) {
-          console.log("room does not exist")  
           socket.emit("receiveRoomError", "Room does not exist") 
     } else {
 
@@ -144,8 +137,7 @@ io.on('connection', socket => {
       let id = socket.id;
       let _data = {username, id}
 
-      console.log("join room success");
-      console.log(roomName)
+
 
       socket.join(roomName)
       roomAtSocket[id] = roomName;
@@ -165,7 +157,6 @@ io.on('connection', socket => {
 
 // this is no longer useful since 1player is offline
   socket.on("startSoloGame", (data) => {
-    console.log("starting solo Game")
 
     // socket ID is room name
     let roomName = socket.id;
@@ -196,7 +187,6 @@ io.on('connection', socket => {
   })
 
   socket.on("askingForGameState", (roomName) => {
-      console.log("socket Asked for GameState");
       
       let currentGame = rooms[roomName];
       let newGameState = currentGame.sendGameState();
@@ -206,7 +196,6 @@ io.on('connection', socket => {
 
   //this trigger is on the <Lobby Component> for multiplayer Games
   socket.on("gameStartRender", (roomName) => {
-    // console.log(roomName)
 
     let currentFullRoom = rooms[roomName]
     currentFullRoom.createGame()
@@ -225,8 +214,6 @@ io.on('connection', socket => {
 
   // here server receives a players move
   socket.on("sentPlayerInput", (data)=> {
-    console.log("got player Input")
-    console.log(data.boneIdx)
     let posPlay = data.posPlay;
     let center = data.center;
     let boneIdx = data.boneIdx;
@@ -246,7 +233,6 @@ io.on('connection', socket => {
     if(room){
 
         
-          console.log("game is in session")
           const currentBone = room.board.currentPlayer.hand.splice(boneIdx,1)[0];
           const verifyMove = room.board.makeMove(posPlay, center, currentBone);
 
@@ -256,15 +242,12 @@ io.on('connection', socket => {
 
                 // probably emit here gameState
                 showModalBoolean = (!room.board.inSession || room.board.lockedGame)
-                console.log(`Show modal:? ${showModalBoolean}`)
-                console.log(`Show locked Status:? ${room.board.lockedGame}`)
-                console.log("~~")
+     
 
                 currentGame = rooms[roomName];
                 newGameState = currentGame.sendGameState();
                 newGameState[showModalBoolean] = showModalBoolean;
-                console.log("sending endGame State")
-                console.log(newGameState)
+              
                 
                 // this exits early with extra key in the newGameState object
                 return io.in(roomName).emit("receiveGameState", newGameState)
@@ -288,15 +271,11 @@ io.on('connection', socket => {
             //emit gameState
 
         }
-        
-        console.log(room.board.renderArena())
-        console.log("Arena ^..hand below")
+      
         room.board.currentPlayer.revealHand()
-        console.log(`^^'s points: ${room.board.currentPlayer.points}`)
-        console.log("A inside")
+     
         
       }
-      console.log("A outside")
     
     
         
@@ -305,7 +284,6 @@ io.on('connection', socket => {
     currentGame = rooms[roomName];
 
     newGameState = currentGame.sendGameState();
-    console.log("sending game State")
 
     io.in(roomName).emit("receiveGameState", newGameState);
     
@@ -322,11 +300,9 @@ io.on('connection', socket => {
     let newGameState;
 
     if(newGameBoolean === true){
-      console.log(`newGame: ${newGameBoolean}`)
       currentGame.createGame()
 
     } else if(newRoundBoolean === true){
-      console.log(`nextRound: ${newRoundBoolean}`)
       currentGame.newNextRound();
 
     }
@@ -340,8 +316,6 @@ io.on('connection', socket => {
   // I suggest the room is deleted as well
   socket.on("disconnect", id => {
     let roomName = roomAtSocket[socket.id];
-    console.log(socket.id)
-    console.log("has disconnected")
     io.in(roomName).emit("changePhase", "playerDisconnect");
 
   })
