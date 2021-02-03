@@ -7,7 +7,7 @@ class Hand extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            gameState: undefined
+            board: undefined
         }
     }
 
@@ -16,13 +16,14 @@ class Hand extends React.Component {
     }
 
 
-    componentDidUpdate(prevProps, prevState){
-        if (prevProps) {
-            if(prevState.gameState != this.state.gameState){
-                this.setState({gameState: this.state.gameState })
-            }
-        } else { console.log("null") }
-    }
+    // componentDidUpdate(prevProps, prevState){
+    //     if (prevState.gameState) {
+    //         debugger
+    //         if (prevState.gameState.currentPlayer != this.state.gameState.players[0]){
+    //             this.setState({gameState: this.state.gameState })
+    //         }
+    //     } else { console.log("null") }
+    // }
 
     render(){
         const {board, allDominos, boneValToString, offSetCenter,
@@ -45,15 +46,15 @@ class Hand extends React.Component {
 
                 // constructBone FN -> reactKey, draggable?, x, y, width, height, source, rotation, inArena?, 
                 //offSetCenter, boneIdx, updateGameFN
-                if (board.currentPlayer.username === board.players[thisPlayerIdx].username){
+                // if (thisPlayerIdx == 0){
                     return constructBone(reactKeyVal, true,
                     pos, 0, boneWidth, boneHeight, allDominos[singleBoneVal],
                     0, false, 0, 0, offSetCenter, idx, this.props.updateGame, board)
-                } else {
-                    return constructBone(reactKeyVal, false,
-                    pos, 0, boneWidth, boneHeight, allDominos[singleBoneVal],
-                    0, false, 0, 0, offSetCenter, idx, this.props.updateGame, board)
-                }
+                // } else {
+                //     return constructBone(reactKeyVal, false,
+                //     pos, 0, boneWidth, boneHeight, allDominos[singleBoneVal],
+                //     0, false, 0, 0, offSetCenter, idx, this.props.updateGame, board)
+                // }
   
             })
 

@@ -4,7 +4,7 @@ import BoardObject from "../classes/board"
 import { set } from "mongoose";
 import {allDominos} from "./allDominos"
 import Chat from './chat/chat';
-import Score from './gameScore.jsx';
+import Score from './gameScoreB.jsx';
 import Countdown from "./countdownS";
 
 class GameB extends React.Component {
@@ -76,6 +76,7 @@ class GameB extends React.Component {
         
         //Restart Game Modal
         if (this.state.gameState){
+            // debugger
             if(this.state.gameState.winningPlayer){
 
                 const {endGame, winningPlayer, lockedGame} = this.state.gameState;
@@ -113,8 +114,8 @@ class GameB extends React.Component {
                     { this.state.gameState ? <Board gameState={this.state.gameState}
                     socket={this.props.socket} updateGame={this.updateGame} /> : null }
                     <div className="flex-col-start">
-                        {/* <Chat key={"chat"}/> */}
-                        {/* <Score board={this.state.board} key={999}/> */}
+                        {/* <Chat board={this.state.board} key={"chat"}/> */}
+                        <Score gameState={this.state.gameState} key={999}/>
                     </div>
                 </div>
             </>

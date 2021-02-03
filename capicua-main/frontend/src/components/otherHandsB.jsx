@@ -14,7 +14,7 @@ class OtherHands extends React.Component {
 
 
     render() {
-        const {board, boardDimen, boneWidth,
+        const {gameState, boardDimen, boneWidth,
             boneHeight, boneValToString, allDominos} = this.props;
 
         const renderHandFn = (player, offSetCenter, playerIdx, currPlayerIdx) => {
@@ -32,7 +32,7 @@ class OtherHands extends React.Component {
 
             const pos = (width * idx);
 
-            if (((currPlayerIdx + 1) % board.players.length)  === playerIdx % board.players.length){
+            if (((currPlayerIdx + 1) % gameState.players.length)  === playerIdx % gameState.players.length){
 
                 // width and height are reversed because the bone is flat
                 // constructBone FN -> reactKey, draggable?, x, y, width, height, source, rotation, inArena?, 
@@ -42,7 +42,7 @@ class OtherHands extends React.Component {
                 0, pos, boneHeight, boneWidth, allDominos["cdl"],
                 0, true, 0, 0, offSetCenter, idx)
             } 
-            else if(((currPlayerIdx + 2) % board.players.length) === playerIdx % board.players.length){
+            else if(((currPlayerIdx + 2) % gameState.players.length) === playerIdx % gameState.players.length){
             
 
                 // constructBone FN -> reactKey, draggable?, x, y, width, height, source, rotation, inArena?, 
@@ -52,7 +52,7 @@ class OtherHands extends React.Component {
                 pos, 0, boneWidth, boneHeight, allDominos["cdt"],
                 0, true, 0, 0, offSetCenter, idx)
             }
-            else if(((currPlayerIdx + 3) % board.players.length) === playerIdx % board.players.length){
+            else if(((currPlayerIdx + 3) % gameState.players.length) === playerIdx % gameState.players.length){
 
                 // constructBone FN -> reactKey, draggable?, x, y, width, height, source, rotation, inArena?, 
                 //offSetCenter, boneIdx
@@ -70,9 +70,20 @@ class OtherHands extends React.Component {
             return renderedHand
         }
 
-        const currPlayerIdx = 0; //board.players.indexOf(board.currentPlayer);
-
+        let currPlayerIdxFn = () => {
+            let idx;
+            for (let i = 0; i < gameState.players.length; i++) {
+                if (gameState.players[i].username === gameState.currentPlayer.username) {
+                    idx = i;
+                }
+            }
+            debugger
+            return idx;
+        }
         
+        // gameState.players.indexOf(gameState.currentPlayer); 
+        const currPlayerIdx = currPlayerIdxFn();
+
         // allPlayers[someIdx]
         //The important thing here is that the index to access allPlayers Obj will
         // always match the index of the next player (p2) and beyond regardless of
@@ -96,6 +107,7 @@ class OtherHands extends React.Component {
                     offSetCenter: null,
                     startBoxforPlayerHand: null,
                     renderedHandPlayer: null
+                         
                 }
             }
 
@@ -104,7 +116,8 @@ class OtherHands extends React.Component {
             for(let j = currPlayerIdx; j < (currPlayerIdx + numPlayers); j++){
 
                 allPlayers[j % numPlayers].playerIdx = (j % numPlayers);
-                allPlayers[j % numPlayers].player = board.players[allPlayers[j % numPlayers].playerIdx];
+                allPlayers[j % numPlayers].player = gameState.players[allPlayers[j % numPlayers].playerIdx];
+                debugger
                 allPlayers[j % numPlayers].playerHand = allPlayers[j % numPlayers].player.hand;
                 allPlayers[j % numPlayers].offSetCenter = ((allPlayers[j % numPlayers].playerHand.length / 2) * ((boneWidth / 3) + boneWidth));
                 allPlayers[j % numPlayers].startBoxforPlayerHand = ((boardDimen / 2) - allPlayers[j % numPlayers].offSetCenter);
@@ -118,7 +131,7 @@ class OtherHands extends React.Component {
 
         }
 
-        const allPlayers = allPlayersDataObj(board.players.length, currPlayerIdx)
+        const allPlayers = allPlayersDataObj(gameState.players.length, currPlayerIdx)
 
         const generateHands = (numPlayers) => {
             
@@ -129,9 +142,9 @@ class OtherHands extends React.Component {
             // const startBoxforPlayer2Hand = ((boardDimen / 2) - offSetCenter);  
 
             // const renderedHandplayer2 = renderHandFn(player2, offSetCenter, player2Idx, "cdt")
-            const player2Idx = ((currPlayerIdx + 1) % board.players.length);
-            const player3Idx = ((currPlayerIdx + 2) % board.players.length);
-            const player4Idx = ((currPlayerIdx + 3) % board.players.length);
+            const player2Idx = ((currPlayerIdx + 1) % gameState.players.length);
+            const player3Idx = ((currPlayerIdx + 2) % gameState.players.length);
+            const player4Idx = ((currPlayerIdx + 3) % gameState.players.length);
             // 
             switch(numPlayers){
                 case 2:
@@ -174,8 +187,8 @@ class OtherHands extends React.Component {
 
         }
         let handsToGenerate = null;
-        if(board){
-            handsToGenerate = generateHands(board.players.length);
+        if(gameState){
+            handsToGenerate = generateHands(gameState.players.length);
 
         }
 

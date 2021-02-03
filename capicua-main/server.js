@@ -66,19 +66,19 @@ app.get("/", (req, res) => {
 // app.use("/api/users", users)
 
 
-// const WebSocket = require('ws');
+const WebSocket = require('ws');
 
-// const wss = new WebSocket.Server({ port: 3001 });
+const wss = new WebSocket.Server(process.env.PORT || { port: 8080 });
 
-// wss.on('connection', function connection(ws) {
-//   ws.on('message', function incoming(data) {
-//     wss.clients.forEach(function each(client) {
-//       if (client !== ws && client.readyState === WebSocket.OPEN) {
-//         client.send(data);
-//       }
-//     });
-//   });
-// });
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(data) {
+    wss.clients.forEach(function each(client) {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send(data);
+      }
+    });
+  });
+});
 
 // app.listen(port, () => {console.log(`Listening on port ${port}`)});
 

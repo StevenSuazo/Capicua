@@ -464,7 +464,7 @@ class Board {
         //for TESTING. REMOVE
         // this.winningPlayer = this.currentPlayer;
         //for TESTING. REMOVE
-        if (this.winningPlayer.points >= 80){
+        if (this.winningPlayer.points >= 1){
             // console.log('Thanos has won');
             return true
             //MongoDB stuff to save the winner

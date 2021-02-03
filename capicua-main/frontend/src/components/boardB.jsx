@@ -5,7 +5,7 @@ import { Stage, Layer, Group, Text} from 'react-konva';
 import BoneL from "../classes/bone"
 import Hand from "./handB"
 import Arena from "./arenaB"
-import OtherHands from "./otherHands"
+import OtherHands from "./otherHandsB"
 import Boneyard from "./boneyardServer"
 
 import { allDominos } from "./allDominos"
@@ -46,7 +46,6 @@ class Board extends React.Component {
         const thisPlayerIdx = this.findPlayerOnThisSocket();
 
         let {arena, currentPlayer, socket} = this.props.gameState;
-
 
         arena = arena.map(boneOptions => {
                 return (new BoneL(boneOptions.boneVal, boneOptions.isReversed))
@@ -116,11 +115,11 @@ class Board extends React.Component {
                     {/* <Group x={startBoxforArena} y={(boardDimen / 2) + 60}>
                         {capDom}
                     </Group> */}
-                    {/* <OtherHands board={board} boardDimen={boardDimen} allDominos={allDominos}
-                    boneWidth={boneWidth} boneHeight={boneHeight} boneValToString={boneValToString}/> */}
+                        <OtherHands gameState={this.props.gameState} boardDimen={boardDimen} allDominos={allDominos}
+                    boneWidth={boneWidth} boneHeight={boneHeight} boneValToString={boneValToString}/>
 
-                    <Text x={boardDimen /2} y={boardDimen - (boneHeight * 2)} 
-                    text={`Curr Player is : ${currentPlayer.username}`} fontSize={25} />
+                    <Text x={(boardDimen /2) - 100} y={boardDimen - (boneHeight * 2)} 
+                            text={`Player turn: ${currentPlayer.username}`} fontSize={25} fill={"#FFFFFF"} stroke={"white"} strokeWidth={1}/>
                     
                     <Boneyard boneyardLength={this.props.gameState.boneyard.bones.length}
                     inSession={this.props.gameState.inSession} 
