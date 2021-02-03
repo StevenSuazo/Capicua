@@ -77,7 +77,7 @@ class OtherHands extends React.Component {
                     idx = i;
                 }
             }
-            debugger
+            // debugger
             return idx;
         }
         
@@ -117,7 +117,7 @@ class OtherHands extends React.Component {
 
                 allPlayers[j % numPlayers].playerIdx = (j % numPlayers);
                 allPlayers[j % numPlayers].player = gameState.players[allPlayers[j % numPlayers].playerIdx];
-                debugger
+                // debugger
                 allPlayers[j % numPlayers].playerHand = allPlayers[j % numPlayers].player.hand;
                 allPlayers[j % numPlayers].offSetCenter = ((allPlayers[j % numPlayers].playerHand.length / 2) * ((boneWidth / 3) + boneWidth));
                 allPlayers[j % numPlayers].startBoxforPlayerHand = ((boardDimen / 2) - allPlayers[j % numPlayers].offSetCenter);

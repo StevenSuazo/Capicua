@@ -17,8 +17,8 @@ class Navbar extends React.Component {
     // })
 
     showModal(){
-        let yerr = document.querySelector(".modal-container");
-        yerr.classList.toggle('modalshow');
+        let modalToggle = document.querySelector(".modal-container");
+        modalToggle.classList.toggle('modalshow');
     }
     render(){
         
