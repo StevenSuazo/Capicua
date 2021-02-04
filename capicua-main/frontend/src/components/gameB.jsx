@@ -3,7 +3,7 @@ import Board from "./boardB"
 import BoardObject from "../classes/board"
 import { set } from "mongoose";
 import {allDominos} from "./allDominos"
-import Chat from './chat/chat';
+import Chat from './messages/chat';
 import Score from './gameScoreB.jsx';
 import Countdown from "./countdownS";
 

@@ -4,8 +4,8 @@ import { Switch, Route } from "react-router-dom"
 import bodega from "./assets/img/La_Bodega.jpg"
 import Splash from './components/splash';
 import {GameViewComponent} from './components/gameView';
-import Join from './components/chat/joinB';
-import Lobby from "./components/chat/lobby"
+import Join from './components/messages/joinB';
+import Lobby from "./components/messages/lobby"
 
 
 function App() {

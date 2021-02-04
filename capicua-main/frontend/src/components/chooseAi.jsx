@@ -1,5 +1,5 @@
 import React from "react"
-import './chat/lobby.css';
+import './messages/lobby.css';
 import bodega from "../assets/img/La_Bodega.jpg"
 
 const ChooseAi = (props) => {
