@@ -30,7 +30,7 @@ class Splash extends React.Component {
         </h1>
         <p className="game-description" >Online 2-4 player Dominoes called 'Capicua Slam'. 
           Filled with robust animations and genuine soundbites to match the authenticity of a real game of dominos.
-          We will also build an AI opponent for offline play and include in game meters to achieve the SLAM! function in the game. 
+          We will also build an AI opponent for offline play.
           We will also add in a game voice chat feature to allow players to interact and influence the game.
         </p>
         <div className="pick-game">
