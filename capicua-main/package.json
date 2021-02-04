@@ -7,16 +7,16 @@
     "server": "nodemon server.js",
     "server:debug": "nodemon --inspect server.js",
     "start": "node server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run start --prefix frontend"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ilo161/capicua.git"
+    "url": "git+https://github.com/stevensuazo/Capicua.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ilo161/capicua/issues"
+    "url": "https://github.com/stevensuazo/capicua/issues"
   },
   "homepage": "https://github.com/ilo161/capicua#readme",
   "dependencies": {
@@ -41,6 +41,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
-  },
-  "type": "module"
+  }
 }

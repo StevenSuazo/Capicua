@@ -86,8 +86,10 @@
 .modal-win-button{
   width: 100px;
   height: 80px;
+  font-weight: 900;
   background-color: rgb(84, 180, 198);
-  color: black;
+  color: white;
+  border-radius: 5px;
 }
 
 .capicua-domino{

@@ -19,14 +19,14 @@ app.get("/", (req, res) => {
 // const User = require("./models/User");
 // const bodyParser = require("body-parser");
 
-// const path = require('path');
+const path = require('path');
 
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static('frontend/build'));
-//   app.get('/', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-//   })
-// }
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/public'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'start', 'index.html'));
+  })
+}
 
 // mongoose
 //   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -66,19 +66,19 @@ app.get("/", (req, res) => {
 // app.use("/api/users", users)
 
 
-const WebSocket = require('ws');
+// const WebSocket = require('ws');
 
-const wss = new WebSocket.Server(process.env.PORT || { port: 8080 });
+// const wss = new WebSocket.Server(process.env.PORT || { port: 8080 });
 
-wss.on('connection', function connection(ws) {
-  ws.on('message', function incoming(data) {
-    wss.clients.forEach(function each(client) {
-      if (client !== ws && client.readyState === WebSocket.OPEN) {
-        client.send(data);
-      }
-    });
-  });
-});
+// wss.on('connection', function connection(ws) {
+//   ws.on('message', function incoming(data) {
+//     wss.clients.forEach(function each(client) {
+//       if (client !== ws && client.readyState === WebSocket.OPEN) {
+//         client.send(data);
+//       }
+//     });
+//   });
+// });
 
 // app.listen(port, () => {console.log(`Listening on port ${port}`)});
 
