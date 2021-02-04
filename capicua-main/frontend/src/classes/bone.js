@@ -27,4 +27,4 @@ class Bone {
 
 
 // export default Bone;
-module.exports = Bone;
+export default Bone;

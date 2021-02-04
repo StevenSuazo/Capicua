@@ -1,4 +1,4 @@
-const Bone = require("./bone.js")
+import Bone from "./bone.js"
 // import Bone from "./bone"
 
 
@@ -70,5 +70,5 @@ class Boneyard {
 }
 
 // export default Boneyard;
-module.exports = Boneyard
+export default Boneyard
 
