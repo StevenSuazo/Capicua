@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "## Background and Overview",
   "main": "index.js",
+  "engines": {
+    "node": "14.13.x"
+  },
   "scripts": {
     "server": "nodemon server.js",
     "server:debug": "nodemon --inspect server.js",
