@@ -222,7 +222,7 @@ class Board {
         // console.log("*************");
         // console.log("NEW CURRENT PLAYER && Hand");
         // console.log(this.currentPlayer.username);
-        this.currentPlayer.revealHand()
+        // this.currentPlayer.revealHand()
         // console.log("*************");
 
         // if NEW currentPlayer CANNOT make a valid move... 

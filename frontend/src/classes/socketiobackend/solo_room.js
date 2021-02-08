@@ -1,5 +1,5 @@
 // import BoardObject from "../board"
-const BoardObject = require("../boardB").default
+const BoardObject = require("../boardB")
 
 class SoloRoom {
     constructor(roomName, io, playerData){

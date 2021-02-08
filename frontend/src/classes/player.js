@@ -62,17 +62,17 @@ class Player {
     }
 
     
-    // revealHand(){
-    //   let handString = ""
-    //     this.hand.forEach(bone => {
-    //       handString += `[${bone.boneVal[0]}, ${bone.boneVal[1]}], `
-    //     })
+    revealHand(){
+      let handString = ""
+        this.hand.forEach(bone => {
+          handString += `[${bone.boneVal[0]}, ${bone.boneVal[1]}], `
+        })
 
-        // console.log(`${this.username}'s Hand: `)
+        console.log(`${this.username}'s Hand: `)
 
-        // console.log(`${handString}`)
+        console.log(`${handString}`)
         
-    // }
+    }
 
     restorePoints(num){
       this.points = num
@@ -81,6 +81,7 @@ class Player {
 
 
 // export default Player;
-export default Player;
+
+module.exports =  Player;
   
 

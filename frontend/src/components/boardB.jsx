@@ -1,14 +1,14 @@
-const React = require("react");
-const { Stage, Layer, Group, Text} = require('react-konva');
-// const Konva = require"konva"
-// const Bone = require"./bone"
-const BoneL = require("../classes/bone")
-const Hand = require("./handB")
-const Arena = require("./arenaB")
-const OtherHands = require("./otherHandsB")
-const Boneyard = require("./boneyardServer")
+import React from "react";
+import { Stage, Layer, Group, Text} from 'react-konva';
+// import Konva from "konva"
+// import Bone from "./bone"
+import BoneL from "../classes/bone"
+import Hand from "./handB"
+import Arena from "./arenaB"
+import OtherHands from "./otherHandsB"
+import Boneyard from "./boneyardServer"
 
-const { allDominos } = require("./allDominos")
+import { allDominos } from "./allDominos"
 
 
 class Board extends React.Component {
@@ -148,4 +148,4 @@ class Board extends React.Component {
 
 
 
-module.exports = Board;
+export default Board;
