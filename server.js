@@ -1,3 +1,6 @@
+// import { createRequire } from 'module';
+// const require = createRequire(import.meta.url);
+
 // import SoloRoom from "./frontend/src/classes/socketiobackend/solo_room"
 const SoloRoom = require("./frontend/src/classes/socketiobackend/solo_room")
 const Room = require("./frontend/src/classes/socketiobackend/room")

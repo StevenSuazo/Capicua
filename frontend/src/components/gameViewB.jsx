@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import queryString from 'query-string';
-import io from "socket.io-client";
+const React = require("react");
+// const queryString = require('query-string');
+// const io = require("socket.io-client");
 
-import Game from './gameB.jsx';
-// import Chat from './chat/chat';
+const Game = require('./gameB.jsx');
+// const Chat = require('./chat/chat');
 
 
-import bodega from "../assets/img/La_Bodega.jpg"
-// import Score from './gameScore.jsx';
-import Rules from './gameRule.jsx';
-import Navbar from './navbar.jsx';
+const bodega = require("../assets/img/La_Bodega.jpg");
+// const Score = require('./gameScore.jsx');
+// const Rules = require('./gameRule.jsx');
+const Navbar = require('./navbar.jsx');
 
  export const GameViewComponent = (props) => {
     // debugger

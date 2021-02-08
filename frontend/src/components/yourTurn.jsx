@@ -1,6 +1,6 @@
 import React from "react";
-import useImage from 'use-image';
-import Konva from "konva";
+// import useImage from 'use-image';
+// import Konva from "konva";
 import { Group, Image, Text } from 'react-konva';
 import YourMove from '../assets/img/modals/yourMove.png'
 import OppMove from '../assets/img/modals/oppMove.png'

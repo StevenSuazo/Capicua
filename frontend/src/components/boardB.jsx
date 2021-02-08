@@ -1,13 +1,14 @@
-import React from "react";
-import Konva from "konva";
-import { Stage, Layer, Group, Text} from 'react-konva';
-import Bone from "./bone"
-import Hand from "./hand"
-import Arena from "./arena"
-import OtherHands from "./otherHands"
-import Boneyard from "./boneyard"
-import YourTurn from './yourTurn'
-import { allDominos } from "./allDominos"
+const React = require("react");
+const { Stage, Layer, Group, Text} = require('react-konva');
+// const Konva = require"konva"
+// const Bone = require"./bone"
+const BoneL = require("../classes/bone")
+const Hand = require("./handB")
+const Arena = require("./arenaB")
+const OtherHands = require("./otherHandsB")
+const Boneyard = require("./boneyardServer")
+
+const { allDominos } = require("./allDominos")
 
 
 class Board extends React.Component {
@@ -20,52 +21,41 @@ class Board extends React.Component {
         // const
     }
 
-    // componentDidUpdate(prevProps){
-    //     let prevPlayer = prevProps.board.currentPlayer.username;
-    //     let nextPlayer = this.props.board.currentPlayer.username;
-    //     // debugger
-    //     if (prevProps.board.currentPlayer.hand.length !== this.props.board.currentPlayer.hand.length) {
-    //         debugger
-    //     } 
-    // }
+    findPlayerOnThisSocket = () => {
+            let num;
 
-    findPlayer = () => {
-        let num;
-        for (let i = 0; i < this.props.board.players.length; i++) {
-            if (this.props.board.players[i] === this.props.board.currentPlayer) {
-                
-                num = i;
+            // debugger
+            for(let i = 0; i < this.props.gameState.players.length; i++){
+                if (this.props.gameState.players[i].id === this.props.socket.id){
+
+                    num = i;
+                }
             }
-        }
-        return num;
+            return num;
+            
     }
 
+    
+
     render(){
-        const boardDimen = 900;
+        const boardDimen = this.props.gameState.boardDimen;
         const boneWidth = 30;
-        const boneHeight = 59;
+        const boneHeight = 60;
         const boneIsRevYPos = (boneWidth / 2);
         const boneNotRevYPos = ((boneWidth / 2) * 3);
-        const thisPlayerIdx = this.findPlayer();
+        const thisPlayerIdx = this.findPlayerOnThisSocket();
 
-        const {board} = this.props;
+        let {arena, currentPlayer, socket} = this.props.gameState;
 
-        const capDom = [<Bone key={"cd"}
-                    draggable={true}
-                    x={0}
-                    width={boneWidth}
-                    height={boneHeight}
-                    src={allDominos["cd"]}
-                    rotation={0}
-                    inArena={true} />]
-
-                    // offsetX={boneWidth / 2}
-                    // offsetY={boneHeight / 2}
+        arena = arena.map(boneOptions => {
+                return (new BoneL(boneOptions.boneVal, boneOptions.isReversed))
+        })
         
 
-        // these 3 lines are required to center the arena in the middle of the board
+
+        // these 4 lines are required to center the arena in the middle of the board
         // for Konva Group
-        const currArenaLength = board.arena.length;
+        const currArenaLength = arena.length;
         const offSetCenterArena = ((currArenaLength / 2) * boneWidth);
         const startBoxforArena = ((boardDimen / 2) - offSetCenterArena);
         const startHeightArena = (boardDimen / 2) - boneHeight;
@@ -96,14 +86,16 @@ class Board extends React.Component {
         // These will determine the length of the playerID owner's hand and render them
         // centered in the right place. We use startBoxforHand to pick a 
         // startX for the rendering of <Hand></Hand>
-        const currHandLength = board.currentPlayer.hand.length
-        // mult by 40 because width of bone is 30 plus 10 more pixels of space
+
+        //works
+        const currHandLength = this.props.gameState.players[thisPlayerIdx].hand.length
+        // // mult by 40 because width of bone is 30 plus 10 more pixels of space
         const offSetCenter = ((currHandLength / 2) * boneWidth + (boneWidth / 3))  
 
         const startBoxforHand = ((boardDimen / 2) - offSetCenter)
-
+        // works
             
-        // const boneyardInt = this.boneyard.testFunction();
+           
             // the arena is simply to show the current pieces in play
         return (
             <div className="board-arena-container">
@@ -114,7 +106,7 @@ class Board extends React.Component {
                     y={currArenaLength <= 8 ? startHeightArena :
                     currArenaLength >= 9 && currArenaLength <= 13 ? startHeightArena - (boneHeight  * (currArenaLength - 8)) :
                     startHeightArena - (boardDimen / 3) }>
-                        <Arena board={board} boardDimen={boardDimen}
+                        <Arena arena={arena} boardDimen={boardDimen}
                          allDominos={allDominos} boneValToString={boneValToString}
                          boneWidth={boneWidth} boneHeight={boneHeight}
                          boneIsRevYPos={boneIsRevYPos}
@@ -123,34 +115,29 @@ class Board extends React.Component {
                     {/* <Group x={startBoxforArena} y={(boardDimen / 2) + 60}>
                         {capDom}
                     </Group> */}
-                    <OtherHands board={board} boardDimen={boardDimen} allDominos={allDominos}
+                        <OtherHands gameState={this.props.gameState} boardDimen={boardDimen} allDominos={allDominos}
                     boneWidth={boneWidth} boneHeight={boneHeight} boneValToString={boneValToString}/>
 
-                    {/* testing show name */}
-                    {/* <Text x={boardDimen / 2} y={boardDimen - (boneHeight * 2)}
-                        text={board.players[0].username} fontSize={25} /> */}
-                    {/* testing */}
+                    <Text x={(boardDimen /2) - 100} y={boardDimen - (boneHeight * 2)} 
+                            text={`Player turn: ${currentPlayer.username}`} fontSize={25} fill={"#FFFFFF"} stroke={"white"} strokeWidth={1}/>
+                    
+                    <Boneyard boneyardLength={this.props.gameState.boneyard.bones.length}
+                    inSession={this.props.gameState.inSession} 
+                    currentPlayer={this.props.gameState.currentPlayer}
+                    players={this.props.gameState.players}/>
 
                     <Group x={startBoxforHand} y={boardDimen - boneHeight}>
 
-                        <Hand offSetCenter={offSetCenter} board={board}
+                        <Hand offSetCenter={offSetCenter} gameState={this.props.gameState}
+                        // hand={currentPlayer.hand}
+                        thisPlayerIdx={thisPlayerIdx}
+                        socket={this.props.socket}
                         boneWidth={boneWidth} boneHeight={boneHeight} 
                         updateGame={this.props.updateGame} allDominos={allDominos}
-                        boneValToString={boneValToString} thisPlayerIdx={thisPlayerIdx}/>
+                        boneValToString={boneValToString}  /> 
                     </Group>
-                        <Boneyard boneyardLength={board.boneyard.bones.length}
-                        //  playerLength={board.players.length} 
-                         player={board.currentPlayer.username}
-                         currentPlayer={board.currentPlayer}
-                         players={board.players}
-                         arenaLength={board.arena.length}
-                         />
-
-                        <YourTurn currentPlayer={board.currentPlayer} players={board.players}/>
-
                 </Layer>
             </Stage>
-                {/* <p> {boneyardInt}</p> */}
           </div>
         );
     }
@@ -161,4 +148,4 @@ class Board extends React.Component {
 
 
 
-export default Board;
+module.exports = Board;

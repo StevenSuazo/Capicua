@@ -1,10 +1,9 @@
-import React from "react";
-import useImage from 'use-image';
-
-import Konva from "konva";
-import { Group, Image, Text } from 'react-konva';
-import Draw from '../assets/img/modals/draw.png'
-import BoneyardRemaining from '../assets/img/modals/boneYardBox.png'
+const React = require("react");
+// const useImage = 'use-image';
+// const Konva = "konva";
+const { Group, Image, Text } = require('react-konva');
+const Draw = require('../assets/img/modals/draw.png')
+const BoneyardRemaining = require('../assets/img/modals/boneYardBox.png')
 
 
 class Boneyard extends React.Component{
@@ -220,4 +219,4 @@ class Boneyard extends React.Component{
     }
 }
 
-export default Boneyard
+module.exports = Boneyard;

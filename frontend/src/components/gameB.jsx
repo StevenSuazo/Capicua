@@ -1,11 +1,11 @@
-import React from "react";
-import Board from "./boardB"
-import BoardObject from "../classes/board"
-import { set } from "mongoose";
-import {allDominos} from "./allDominos"
-import Chat from './messages/chat';
-import Score from './gameScoreB.jsx';
-import Countdown from "./countdownS";
+const React = require("react");
+const Board = require("./boardB")
+const BoardObject = require("../classes/board")
+const { set } = require("mongoose");
+const {allDominos} = require("./allDominos")
+const Chat = require('./messages/chat');
+const Score = require('./gameScoreB.jsx');
+const Countdown = require("./countdownS");
 
 class GameB extends React.Component {
     constructor(props){
@@ -124,4 +124,4 @@ class GameB extends React.Component {
 
 }
 
-export default GameB;
+module.exports = GameB;
