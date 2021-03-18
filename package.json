@@ -7,7 +7,7 @@
     "node": "14.13.x"
   },
   "scripts": {
-    "server": "nodemon server.js",
+    "server": "nodemon --exec babel-node server.js",
     "server:debug": "nodemon --inspect server.js",
     "start": "node server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
@@ -23,6 +23,10 @@
   },
   "homepage": "https://github.com/ilo161/capicua#readme",
   "dependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/node": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "axios": "^0.21.0",
     "bcryptjs": "^2.4.3",

@@ -7,8 +7,18 @@ import ChooseAi from "../chooseAi"
 import Lobby from "./lobby"
 import { capitalize, truncate } from "../../util/strUtil"
 import bodega from "../../assets/img/La_Bodega.jpg"
-
 import './join.css';
+
+// const React = require('react');
+// const { Link } = require("react-router-dom");
+// const io = require("socket.io-client");
+// const HOST = require("../../util/host");
+// const { GameViewComponent } = require('../gameViewB');
+// const ChooseAi = require("../chooseAi");
+// const Lobby = require("./lobby");
+// const { capitalize, truncate } = require("../../util/strUtil");
+// const bodega = require("../../assets/img/La_Bodega.jpg");
+// require ('./join.css');
 
 
 class Join extends React.Component {
@@ -534,3 +544,4 @@ class Join extends React.Component {
 }
 
 export default Join;
+// module.exports = Join;
