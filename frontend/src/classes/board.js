@@ -1,5 +1,5 @@
-import Boneyard from "./boneyard";
-import Player from "./player";
+const Boneyard = require("./boneyard");
+const Player = require("./player");
 // import Boneyard from "./boneyard"
 // import Player from "./player"
 
