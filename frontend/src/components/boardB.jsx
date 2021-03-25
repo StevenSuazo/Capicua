@@ -1,6 +1,6 @@
 import React from "react";
 import { Stage, Layer, Group, Text} from 'react-konva';
-// import BoneL from "../classes/bone"
+import BoneL from "../classes/bone"
 import Hand from "./handB"
 import Arena from "./arenaB"
 import OtherHands from "./otherHandsB"
@@ -8,7 +8,7 @@ import Boneyard from "./boneyardServer"
 import { allDominos } from "./allDominos"
 
 // const { Stage, Layer, Group, Text } = require("react-konva");
-const BoneL = require("../classes/bone");
+// const BoneL = require("../classes/bone");
 // const Hand = require("./handB");
 // const Arena = require("./arenaB");
 // const OtherHands = require("./otherHandsB");

@@ -1,7 +1,7 @@
-const Boneyard = require("./boneyard");
-const Player = require("./player");
-// import Boneyard from "./boneyard"
-// import Player from "./player"
+// const Boneyard = require("./boneyard");
+// const Player = require("./player");
+import Boneyard from "./boneyard";
+import Player from "./player";
 
 Array.prototype.myFlatten = function () {
     let flattened = [];
@@ -370,11 +370,6 @@ class Board {
     ********************************RUNNING GAMEPLAY FUNCTIONS END HERE**************
     ********************************RUNNING GAMEPLAY FUNCTIONS END HERE**************
     */
-
-    //Might need AI CLASS of PLAYER
-    firstMoveAI(){
-
-    }
 
     // Renders Arena for Terminal
     renderArena(){

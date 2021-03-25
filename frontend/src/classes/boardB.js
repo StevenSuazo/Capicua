@@ -1,5 +1,5 @@
-const Boneyard = require("./boneyard");
-const Player = require("./player");
+const Boneyard = require("./boneyardB");
+const Player = require("./playerB");
 // import Boneyard from "./boneyard"
 // import Player from "./player"
 
@@ -106,9 +106,9 @@ class Board {
             
             //TESTING ONLY -- DELETE FOR PRODUCTION
             // console.log(`${player.username} below`)
-                player.hand.forEach(boneObj => {
+                // player.hand.forEach(boneObj => {
                     // console.log(boneObj.boneVal);
-                })
+                // })
         });
     }
 
@@ -375,11 +375,6 @@ class Board {
     ********************************RUNNING GAMEPLAY FUNCTIONS END HERE**************
     ********************************RUNNING GAMEPLAY FUNCTIONS END HERE**************
     */
-
-    //Might need AI CLASS of PLAYER
-    firstMoveAI(){
-
-    }
 
     // Renders Arena for Terminal
     renderArena(){

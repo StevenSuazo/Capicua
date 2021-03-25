@@ -1,5 +1,5 @@
 const BoardObject = require("../boardB");
-const Player = require("../player");
+const Player = require("../playerB");
 
 class Room {
     constructor(numPlayers, roomName, io,){
