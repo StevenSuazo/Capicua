@@ -274,8 +274,8 @@ class Game extends React.Component {
                     {modal}
                     { this.state.board ? <Board board={this.state.board} updateGame={this.updateGame} /> : null }
                     <div className="flex-col-start sidebar-occupy-width">
-
-                        <Chat key={"chat"} players={this.state.board.players}/>
+                        <img className="capicua-domino-lrg" src={allDominos["cd"]}></img>
+                        {/* <Chat key={"chat"} players={this.state.board.players}/> */}
                         <Score board={this.state.board} key={999}/>
                     </div>
                 </div>

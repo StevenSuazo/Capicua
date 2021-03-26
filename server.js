@@ -320,16 +320,22 @@ io.on('connection', socket => {
     newGameState = currentGame.sendGameState()
     io.in(roomName).emit("receiveGameState", newGameState);
   })
-
-
+  
+  
   // Here a player disconnects from server however the room is still available.
   // I suggest the room is deleted as well
   socket.on("disconnect", id => {
     let roomName = roomAtSocket[socket.id];
     io.in(roomName).emit("changePhase", "playerDisconnect");
-
+    
   })
+  
+  
+  socket.on('sendMessage', message => {
+    let roomName = roomAtSocket[socket.id];
 
+    io.in(roomName).emit("addMsg", message);
+  });
   
 
 });
@@ -374,14 +380,6 @@ const router = require('./router');
 
 
 
-
-//   socket.on('sendMessage', (message, callback) => {
-//     const user = getUser(socket.id);
-
-//     io.to(user.room).emit('message', { user: user.name, text: message });
-
-//     callback();
-//   });
 
 
 

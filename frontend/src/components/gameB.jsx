@@ -29,11 +29,10 @@ class GameB extends React.Component {
         this.previousPlayersArr = undefined;
         this.updateGame = this.updateGame.bind(this);
         this.restartGame = this.restartGame.bind(this);
+        this.findCurrPlayer = this.findCurrPlayer.bind(this)
+        this.username = undefined;
+        this.currPlayerIdx = this.findCurrPlayer();
     }
-
-    
-
-
 
     componentDidUpdate(prevProps) {
 
@@ -70,7 +69,20 @@ class GameB extends React.Component {
        
     }
 
-    
+    findCurrPlayer = () => {
+        let num;
+        let username;
+
+        for (let i = 0; i < this.props.gameState.players.length; i++) {
+            if (this.props.gameState.players[i].id === this.props.socket.id) {
+                num = i;
+            }
+        }
+        username = this.props.gameState.players[num].username
+        this.username = username;
+        return num;
+
+    }
 
     updateGame(posPlay, center, boneIdx) {
         // debugger 
@@ -116,6 +128,7 @@ class GameB extends React.Component {
         }
                    
 
+        debugger
         return (
             <>
                 <div className="board-score-container flex-row-start">
@@ -123,7 +136,7 @@ class GameB extends React.Component {
                     { this.state.gameState ? <Board gameState={this.state.gameState}
                     socket={this.props.socket} updateGame={this.updateGame} /> : null }
                     <div className="flex-col-start">
-                        {/* <Chat board={this.state.board} key={"chat"}/> */}
+                        <Chat board={this.state.board} username={this.username} socket={this.socket} key={"chat"}/>
                         <Score gameState={this.state.gameState} key={999}/>
                     </div>
                 </div>

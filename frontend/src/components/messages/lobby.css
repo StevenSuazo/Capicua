@@ -136,6 +136,8 @@ button:focus {
 
 .bodega-img{
     position: absolute;
+    background-repeat: no-repeat;
+    background-size: auto;
     left: 0;
     top: 0;
     right: 0;
@@ -147,6 +149,8 @@ button:focus {
 
   .bodega-img-splash{
     position: absolute;
+    background-repeat: no-repeat;
+    background-size: auto;
     left: 0;
     top: 0;
     right: 0;
