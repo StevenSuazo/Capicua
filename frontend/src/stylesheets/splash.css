@@ -65,12 +65,12 @@
     border-radius: 25px;
     background-color: rgb(186, 31, 49);
 }
-.start-btn-2:hover span {display:none}
+/* .start-btn-2:hover span {display:none}
 .start-btn-2:hover::after{
     font-weight: 900;
     font-size: 17px;
     content:"in progress!";
-}
+} */
 
 .developers-title{
     display: flex;
@@ -137,6 +137,8 @@
 
 .bodega-img{
     position: absolute;
+    background-repeat: no-repeat;
+    background-size: auto;
     left: 0;
     top: 0;
     right: 0;
@@ -148,6 +150,8 @@
 
   .bodega-img-splash{
     position: absolute;
+    background-repeat: no-repeat;
+    background-size: auto;
     left: 0;
     top: 0;
     right: 0;
