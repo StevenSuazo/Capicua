@@ -122,7 +122,7 @@ class Board extends React.Component {
                         {capDom}
                     </Group> */}
                         <OtherHands gameState={this.props.gameState} boardDimen={boardDimen} allDominos={allDominos}
-                    boneWidth={boneWidth} boneHeight={boneHeight} boneValToString={boneValToString}/>
+                            boneWidth={boneWidth} boneHeight={boneHeight} boneValToString={boneValToString} thisPlayerIdx={thisPlayerIdx} />
 
                     <Text x={(boardDimen /2) - 100} y={boardDimen - (boneHeight * 2)} 
                             text={`Player turn: ${currentPlayer.username}`} fontSize={25} fill={"#FFFFFF"} stroke={"white"} strokeWidth={1}/>

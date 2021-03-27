@@ -70,19 +70,19 @@ class OtherHands extends React.Component {
             return renderedHand
         }
 
-        let currPlayerIdxFn = () => {
-            let idx;
-            for (let i = 0; i < gameState.players.length; i++) {
-                if (gameState.players[i].username === gameState.currentPlayer.username) {
-                    idx = i;
-                }
-            }
-            // debugger
-            return idx;
-        }
+        // let currPlayerIdxFn = () => {
+        //     let idx;
+        //     for (let i = 0; i < gameState.players.length; i++) {
+        //         if (gameState.players[i].username === gameState.currentPlayer.username) {
+        //             idx = i;
+        //         }
+        //     }
+        //     // debugger
+        //     return idx;
+        // }
         
         // gameState.players.indexOf(gameState.currentPlayer); 
-        const currPlayerIdx = currPlayerIdxFn();
+        const currPlayerIdx = this.props.thisPlayerIdx;
         // console.log(currPlayerIdx)
 
         // allPlayers[someIdx]
@@ -124,7 +124,7 @@ class OtherHands extends React.Component {
                 allPlayers[j % numPlayers].startBoxforPlayerHand = ((boardDimen / 2) - allPlayers[j % numPlayers].offSetCenter);
                 allPlayers[j % numPlayers].renderedHandPlayer = renderHandFn(allPlayers[j % numPlayers].player,
                          allPlayers[j % numPlayers].offSetCenter,
-                         (allPlayers[j % numPlayers].playerIdx), currPlayerIdx)
+                         allPlayers[j % numPlayers].playerIdx, currPlayerIdx)
                 
                 }
                 
