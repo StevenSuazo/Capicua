@@ -134,7 +134,7 @@ button:focus {
   }
 }
 
-.bodega-img{
+/* .bodega-img{
     position: absolute;
     background-repeat: no-repeat;
     background-size: auto;
@@ -159,4 +159,4 @@ button:focus {
     height: 100%;
     z-index: -1;
     filter: blur(6px);
-  }
+  } */

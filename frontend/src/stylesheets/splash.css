@@ -170,7 +170,8 @@
 .hireMe{
     width: 42px;
     height: 48px;
-filter: invert(100%) sepia(84%) saturate(4267%) hue-rotate(354deg) brightness(106%) contrast(105%);
+    color: rgb(184, 34, 50);
+    /* filter: invert(100%) sepia(84%) saturate(4267%) hue-rotate(354deg) brightness(106%) contrast(105%); */
 
 }
 .hireMe:active {

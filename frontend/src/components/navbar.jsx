@@ -55,7 +55,7 @@ class Navbar extends React.Component {
                         </div>
                      </div>
                      <Music/>
-                        <button className="music-rules-btn" onClick={this.showModal} >Rule</button>
+                        <button className="music-rules-btn" onClick={this.showModal} >Rules</button>
                         <div className="modal-container">
                             <div className="modal">
                                 <div className="rules-music-container">
