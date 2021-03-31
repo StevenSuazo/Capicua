@@ -153,7 +153,7 @@ class Music extends React.Component {
 
         <div className="music-container">
             {/* flex Start */}
-            <h1 className="music-title">Play Song</h1>
+            <h1 className="music-title">Music</h1>
             <div className="songs-container"> 
                 <ul className="songs">{musicList}</ul>
             {/* flex Start */}

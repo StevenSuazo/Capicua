@@ -14,7 +14,7 @@
 }
 
 .sidebar-occupy-width{
-  width: 650px;
+  /*remove with because it was creating to much space */
   height: 100%;
 }
 

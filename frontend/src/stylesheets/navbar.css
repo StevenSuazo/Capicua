@@ -9,17 +9,18 @@
     display: flex;
     color: white;
     font-size: 40px;
-    margin-right: 5%;
-    margin-left: 3%;
+    margin-left: 2vh;
     -webkit-text-stroke-color: black;
     -webkit-text-stroke-width: 1.00px;
     text-decoration: transparent;
+
 }
 
 .navbar{
     display: flex;
     justify-content: space-between;
     width: 100%;
+    
 }
 
 .engineers-music-rules{
@@ -32,8 +33,9 @@
 }
 .nav-name-title{
     margin-top: 5%;
-    margin-left: 7%;
-    margin-right: 9%;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    width: 60px;
     -webkit-text-stroke-color: black;
     -webkit-text-stroke-width: .20px
 }
