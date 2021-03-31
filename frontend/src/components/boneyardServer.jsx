@@ -64,12 +64,12 @@ class Boneyard extends React.Component{
 
     componentDidUpdate(prevProps){
         // this.showDrawAlert()
-        // debugger
+        // 
         if (this.props.boneyardLength <= (28 - (this.props.players.length * 7)) && (prevProps.boneyardLength !== this.props.boneyardLength)) {
             let textPropsBY = Object.assign({},this.state.textPropsBY);
             textPropsBY.text = `${this.props.boneyardLength}`
             
-            // debugger
+            // 
 
             this.diff = prevProps.boneyardLength - this.props.boneyardLength
 
@@ -81,7 +81,7 @@ class Boneyard extends React.Component{
                 this.currPlayerIdx = this.findPlayerByIndex()
                 let textProps;
                 let userName;
-                // debugger
+                // 
                 if (this.state.allPlayers[this.currPlayerIdx].username.length <= 6){
                     userName = `     ${this.state.allPlayers[this.currPlayerIdx].username} \n    draws ${this.diff}`
                 } else {
@@ -108,7 +108,7 @@ class Boneyard extends React.Component{
                     allPlayers[this.currPlayerIdx] = thisPlayer;
 
                     this.setState({allPlayers, textProps, textPropsBY}, () => {
-                        // debugger
+                        // 
                         setTimeout(() => {
                             thisPlayer.drawImageToggle = false;
                             let allPlayers = this.state.allPlayers;

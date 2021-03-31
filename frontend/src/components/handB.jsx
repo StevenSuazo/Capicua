@@ -18,15 +18,15 @@ class Hand extends React.Component {
 
     componentDidMount(){
         this.setState({gameState: this.props.gameState})
-        // debugger
+        // 
     }
 
     componentDidUpdate(prevProps, prevState){
 
         if(prevState.gameState !== undefined){
-            // debugger
+            // 
             if(prevState.gameState.players != this.props.gameState.players){
-                // debugger
+                // 
                 this.setState({gameState: this.props.gameState })
             }
         }
@@ -68,10 +68,10 @@ class Hand extends React.Component {
 
             //    thisPlayerIdx = this.findPlayerOnThisSocket()
                totalLengthHand = gameState.players[thisPlayerIdx].hand.length;
-                 // debugger
+                 // 
                  // renderedHand = gameState.currentPlayer.hand.map((bone,idx) => {
                renderedHand = gameState.players[thisPlayerIdx].hand.map((bone,idx) => {
-                // debugger
+                // 
 
                const singleBoneVal =  boneValToString(bone.boneVal)[0]
                const reactKeyVal = parseInt(singleBoneVal)
@@ -115,7 +115,7 @@ class Hand extends React.Component {
             }
             
         }
-        // debugger
+        // 
          return(
                 <>          
                  {renderedHand}

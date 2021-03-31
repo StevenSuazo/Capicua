@@ -208,18 +208,17 @@ class Board {
     nextPlayerAssignTurn(){
         // console.log(`is next: ${this.currentPlayer.username}`)
         //    Or curry sum here??
-        // debugger
         let idxCurrPlayer ;
         idxCurrPlayer = this.players.indexOf(this.currentPlayer)   
 
         this.currentPlayer = this.players[((idxCurrPlayer + 1) % this.players.length)]
         let isGameLocked = undefined;
-        // debugger
+        // 
 
 
         // TESTING PURPOSES ONLY DELETE LATER //
         // console.log("*************");
-        // debugger
+        // 
         // console.log("NEW CURRENT PLAYER && Hand");
         // console.log(this.currentPlayer.username);
         // this.currentPlayer.revealHand()
@@ -227,14 +226,14 @@ class Board {
 
         // if NEW currentPlayer CANNOT make a valid move... 
         if(!this.currentPlayer.hasPlayableBones()){
-            // debugger
+            // 
             
             // If boneyard empty, changePlayer to nextPlayer
             if (this.boneyard.bones.length === 0){
                 isGameLocked = this.addOneToSkipCounter();
 
                 if(isGameLocked){
-                    // debugger
+                    // 
                     return false
                 }
                 this.nextPlayerAssignTurn()
@@ -244,18 +243,18 @@ class Board {
                 //currentPlayer draws from boneyard
                 // auto draw feature. (no animation yet)
                 while ((!this.currentPlayer.hasPlayableBones()) && (this.boneyard.bones.length > 0)){
-                    // debugger
+                    // 
                     this.currentPlayer.drawBone()
                     
                 }
 
                 //player draws all bones && still has no valid move
                 if((this.boneyard.bones.length === 0) && (!this.currentPlayer.hasPlayableBones())){
-                    // debugger
+                    // 
                     isGameLocked = this.addOneToSkipCounter();
 
                     if (isGameLocked) {
-                        // debugger
+                        // 
                         return false
                     }
                     this.nextPlayerAssignTurn()
@@ -302,7 +301,7 @@ class Board {
         // second test checks top number of player hand bone second
         //orig below
         // if(bone.boneVal[1] !== arenaLeftBoneVal && bone.boneVal[0] === arenaLeftBoneVal){
-            // debugger
+            // 
         if((bone.boneVal[1] !== arenaLeftBoneVal) && (bone.boneVal[0] === arenaLeftBoneVal)){
             
             bone.boneReverse();
@@ -333,7 +332,7 @@ class Board {
         
         //orig below
         // if(bone.boneVal[0] !== arenaRightBoneVal && bone.boneVal[1] === arenaRightBoneVal){
-            // debugger
+            // 
         if((bone.boneVal[0] !== arenaRightBoneVal) && (bone.boneVal[1] === arenaRightBoneVal)){
             
                 bone.boneReverse();
@@ -395,9 +394,9 @@ class Board {
     }
 
     isCurrentGameOver(){
-        // debugger
+        // 
         if(this.currentPlayer.hand.length === 0){
-            // debugger
+            // 
             this.inSession = false;
             this.winningPlayer = this.currentPlayer;
             this.tallyAllPointsForWinner();
@@ -434,7 +433,7 @@ class Board {
             //Update db of current state of game to reflect player's score
             // console.log(`${this.winningPlayer.username}` + 'wins & has ' + `${this.winningPlayer.points}`)
             // console.log(`players hand points: ${totalHandValues}`)
-            // debugger
+            // 
             // console.log('this game is locked');
             return true
         }

@@ -23,9 +23,9 @@ class Board extends React.Component {
     // componentDidUpdate(prevProps){
     //     let prevPlayer = prevProps.board.currentPlayer.username;
     //     let nextPlayer = this.props.board.currentPlayer.username;
-    //     // debugger
+    //     // 
     //     if (prevProps.board.currentPlayer.hand.length !== this.props.board.currentPlayer.hand.length) {
-    //         debugger
+    //         
     //     } 
     // }
 

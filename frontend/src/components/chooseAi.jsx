@@ -4,7 +4,7 @@ import bodega from "../assets/img/La_Bodega.jpg"
 
 const ChooseAi = (props) => {
 //   const {players, totalPlayers} = props;
-//   // debugger
+//   // 
     let buttonText;
 //     const allUsernames = players.map(player => {
 //       return (

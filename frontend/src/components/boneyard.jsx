@@ -71,7 +71,7 @@ class Boneyard extends React.Component{
             let textPropsBY = Object.assign({},this.state.textPropsBY);
             textPropsBY.text = `${this.props.boneyardLength}`
             
-            // debugger
+            // 
             this.diff = prevProps.boneyardLength - this.props.boneyardLength
 
             if (this.diff <= 0) {
@@ -109,7 +109,7 @@ class Boneyard extends React.Component{
                     allPlayers[this.currPlayerIdx] = thisPlayer;
 
                     this.setState({allPlayers, textProps, textPropsBY}, () => {
-                        // debugger
+                        // 
                         setTimeout(() => {
                             thisPlayer.drawImageToggle = false;
                             let allPlayers = this.state.allPlayers;

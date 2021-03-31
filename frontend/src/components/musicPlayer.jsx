@@ -65,7 +65,7 @@ class Music extends React.Component {
           }
     }
     soundCheck(event) {
-        // debugger
+        // 
         this.setState({value: event.target.value});
         this.player.volume = event.target.value //this.state.value
         // console.log(this.state.value)
@@ -144,7 +144,7 @@ class Music extends React.Component {
                 </li>
             )
         })
-        // debugger
+        // 
         musicList.push(divPlayBtn)
 
     

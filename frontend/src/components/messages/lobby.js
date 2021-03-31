@@ -11,7 +11,7 @@ const Lobby = (props) => {
 
   const {isOnline} = props;
 
-  // debugger
+  // 
   if (props.playerDisconnected){
       playerDisconnected = props.playerDisconnected;
   } else {

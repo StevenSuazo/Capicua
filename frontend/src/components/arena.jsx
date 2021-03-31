@@ -210,7 +210,7 @@ class Arena extends React.Component {
                             // bone is NOT reversed
                             //rotate once 0 degrees
 
-                            // debugger
+                            // 
                             topRowTotalPos = topRowTotalPos - (boneWidth / 2);
                             
                             
@@ -308,7 +308,7 @@ class Arena extends React.Component {
                     case false:
 
                         if (bone.isDouble()){
-                            // debugger
+                            // 
 
 
                             adjustedX = topRowTotalPos - bottomRowTotalPos + (boneWidth / 2);
@@ -322,7 +322,7 @@ class Arena extends React.Component {
                             0, true , offsetX, offsetY)
                         }
                         else if(allDominosArr.includes(boneStrArr[0])){
-                            // debugger
+                            // 
                         // bone is NOT reversed
                         // rotate once  +90 degrees
                         
@@ -339,7 +339,7 @@ class Arena extends React.Component {
                     } else {
                         //boneVal has been reversed. Rotate -90 Degrees
 
-                        // debugger
+                        // 
                         
                         adjustedX = topRowTotalPos - bottomRowTotalPos;
 

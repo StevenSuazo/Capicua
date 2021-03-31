@@ -85,7 +85,7 @@ class GameB extends React.Component {
     }
 
     updateGame(posPlay, center, boneIdx) {
-        // debugger 
+        //  
         this.socket.emit("sentPlayerInput", {posPlay: posPlay,
         center: center, boneIdx: boneIdx, roomName: this.state.gameState.roomName})
        
@@ -97,7 +97,7 @@ class GameB extends React.Component {
         
         //Restart Game Modal
         if (this.state.gameState){
-            // debugger
+            // 
             if(this.state.gameState.winningPlayer){
 
                 const {endGame, winningPlayer, lockedGame} = this.state.gameState;
@@ -128,7 +128,7 @@ class GameB extends React.Component {
         }
                    
 
-        debugger
+        
         return (
             <>
                 <div className="board-score-container flex-row-start">

@@ -47,7 +47,7 @@ class Game extends React.Component {
 
     constructor(props){
         super(props)
-        // debugger
+        // 
         const board = new BoardObject(props.gamePlayers, 900)
        
         this.state = {
@@ -61,7 +61,7 @@ class Game extends React.Component {
         this.hasAiGone = false;
         this.oldArenaLen = undefined;
         this.oldTimeIds = [];
-        // debugger
+        // 
     }
 
     
@@ -88,17 +88,17 @@ class Game extends React.Component {
 
     forceAiAutoPlay(){
         if(this.state.board.currentPlayer.isAi === true){
-                // debugger
+                // 
                 if(!this.hasAiGone){
                     this.oldArenaLen = this.state.board.arena.length;
 
                     while(this.state.board.arena.length === this.oldArenaLen && this.state.board.inSession){
-                        // debugger
+                        // 
                         this.updateGame(...this.state.board.currentPlayer.aiAutoPlay("easy"))
                     }
                     this.hasAiGone = true;
                 }
-                // debugger
+                // 
                 this.hasAiGone = false;
         }
     }
@@ -127,10 +127,10 @@ class Game extends React.Component {
 
         //start a brand new game with everything reset
         if(isNewGame){
-            // debugger
+            // 
             this.setState({ board: new BoardObject(this.props.gamePlayers, 900) })    
         } else {
-            // debugger
+            // 
             // continue on to next round.
             this.previousPlayersArr = this.state.board.players;
             const board = new BoardObject(this.props.gamePlayers, 900)
@@ -140,7 +140,7 @@ class Game extends React.Component {
        
         
         if(this._isMounted){
-            // debugger
+            // 
             // this.setState({ board: board });
         }
     }
@@ -156,7 +156,7 @@ class Game extends React.Component {
         // here to check state. of playable Bone
         // ...
         const currentBone = this.state.board.currentPlayer.hand.splice(boneIdx,1)[0];
-        // debugger
+        // 
         const verifyMove = this.state.board.makeMove(posPlay, center, currentBone);
 
         if(this.state.board.currentPlayer.isAi === false){
@@ -184,13 +184,13 @@ class Game extends React.Component {
 
                 //should the game reach the min for the skip counter. End the Game
                 // if(this.state.board.lockedGame === true){
-                //     // debugger
+                //     // 
                 //     const aPlayerHasWonRound = this.state.board.endGame();
 
                 //     if (aPlayerHasWonRound){
-                //         debugger
+                //         
                 //     } else {
-                //         debugger
+                //         
                 //         // this.restartGame();
                 //     }
                     ////return what? why? to escape the game loop?
@@ -202,16 +202,16 @@ class Game extends React.Component {
                 // const aPlayerHasWonRound = this.state.board.endGame();
 
                 // if (aPlayerHasWonRound){
-                //     debugger
+                //     
                 // } else {
-                //     debugger
+                //     
                 //     // this.restartGame();
                 // }
                 
                 this.setState({ board: this.state.board });
             }
         } else {
-            // debugger
+            // 
             this.state.board.currentPlayer.hand.splice(boneIdx,0, currentBone); 
             
             if(this.state.board.currentPlayer.isAi === false){
@@ -226,7 +226,7 @@ class Game extends React.Component {
         //console.log("Arena ^..hand below")
         // this.state.board.currentPlayer.revealHand()
         //console.log(this.state.board.currentPlayer.revealHand())
-        // debugger
+        // 
         //console.log(`^^'s points: ${this.state.board.currentPlayer.points}`)
     }
 
@@ -236,7 +236,7 @@ class Game extends React.Component {
         let endGameButton;
         // let autoStartNextRound = setTimeout(this.restartGame, 10000); 
         if (this.state.board.winningPlayer) {
-            // debugger
+            // 
             //testing. EndGame for For
             const endGame = this.state.board.endGame()
             {/* using logic from Board logic class */ }

@@ -18,7 +18,7 @@ class Hand extends React.Component {
 
     // componentDidUpdate(prevProps, prevState){
     //     if (prevState.gameState) {
-    //         debugger
+    //         
     //         if (prevState.gameState.currentPlayer != this.state.gameState.players[0]){
     //             this.setState({gameState: this.state.gameState })
     //         }

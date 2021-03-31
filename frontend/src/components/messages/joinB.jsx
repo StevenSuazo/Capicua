@@ -71,10 +71,10 @@ class Join extends React.Component {
 
   componentDidMount() {
     // this.socket = io(HOST);
-    // debugger
+    // 
 
     if (this.props.location.state.isOnline === true) {
-      // debugger
+      // 
       this.socket = io(HOST);
       this.socket.on('connect', socket => {
 
@@ -105,16 +105,16 @@ class Join extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
+    // 
     // if(prevProps.history.location.state.phase == "prelobby"){
     //   if(prevProps.history.location.state.phase !== this.state.phase){
-    //     debugger
+    //     
     //     this.socket.emit("askingForGameState", this.roomName)
     //   }
     // }
 
     // if(this.state.phase === "soloLobby"){
-    //   debugger
+    //   
     //   this.socket.emit("askingForGameState", this.roomName)
     // }
   }
@@ -164,10 +164,10 @@ class Join extends React.Component {
         })
       } else {
         // Create a Server Room
-        // debugger
+        // 
         // this.setState({lobbyPlayers: this.state.lobbyPlayers.push({username:this.state.username})}, () => {
         this.setState({ lobbyPlayers: [{ username: this.state.username }] }, () => {
-          // debugger
+          // 
           this.socket.emit("createRoom",
             {
               roomName: this.state.roomName,
@@ -208,7 +208,7 @@ class Join extends React.Component {
   }
 
   handlePhaseChange(phase) {
-    // debugger
+    // 
 
     if (phase === "playerDisconnect") {
       this.setState({ phase: phase, playerDisconnected: true })
@@ -217,15 +217,15 @@ class Join extends React.Component {
 
     }
 
-    // debugger
+    // 
     // this.receiveGameState()
 
   }
 
   receiveGameState(gameState) {
-    // debugger
+    // 
     this.setState({ gameState: gameState });
-    // debugger
+    // 
   }
 
   receiveAiAutoPlayData(aiMove) {
@@ -249,7 +249,7 @@ class Join extends React.Component {
   }
 
   generateAiPlayers() {
-    // debugger
+    // 
     let players = []
 
     players.push({ username: capitalize(this.state.username) })
@@ -289,7 +289,7 @@ class Join extends React.Component {
     // })
     this.setState({ players: players })
 
-    // debugger
+    // 
 
 
   }
@@ -306,7 +306,7 @@ class Join extends React.Component {
     // FN to generate AI Player objects 
     // const generateAiPlayers = () => {
     // players.push({username: this.state.username})
-    // debugger
+    // 
 
 
     // this sets the State with Random AI usernames
@@ -395,7 +395,7 @@ class Join extends React.Component {
 
       // These are the buttons under the input fields.
       if (this.state.buttonText) {
-        // debugger
+        // 
         buttonToJoinServer = <button className={'button mt-20'}
           onClick={() => this.handleServerLogic("join")}
           type="submit">{this.state.buttonText[0]}</button>
@@ -443,11 +443,11 @@ class Join extends React.Component {
 
           break;
         case "soloLobby":
-          // debugger
+          // 
 
           if (this.state.gameState) {
             // //this starts an online Lobby
-            // debugger
+            // 
             //   return (
             //     // <GameViewComponent board={this.state.gameState}/>
             //     <Lobby players={this.state.gameState.players}
@@ -474,7 +474,7 @@ class Join extends React.Component {
           if (this.state.gameState) {
             return (<GameViewComponent socket={this.socket} gameState={this.state.gameState} />)
           } else if (!this.state.isOnline && this.state.players) {
-            // debugger
+            // 
 
           }
 
@@ -484,7 +484,7 @@ class Join extends React.Component {
             return (
               // <GameViewComponent board={this.state.gameState}/>
               // players={this.state.gameState.players}
-              // debugger
+              // 
               <Lobby
                 joinOrCreate={this.state.joinOrCreate}
                 roomName={this.state.roomName}
@@ -533,7 +533,7 @@ class Join extends React.Component {
 
     showInputField = selectInputFields();
     displayPhase = displayPhaseFn();
-    // debugger
+    // 
 
     return (
       <>

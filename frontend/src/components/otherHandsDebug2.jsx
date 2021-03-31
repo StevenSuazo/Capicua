@@ -12,7 +12,7 @@ class OtherHands extends React.Component {
             boneHeight, boneValToString, allDominos} = this.props;
 
         const renderHandFn = (player, offSetCenter, playerIdx, currPlayerIdx) => {
-            // debugger
+            // 
             
          const renderedHand = player.hand.map((bone,idx) => {
 
@@ -114,7 +114,7 @@ class OtherHands extends React.Component {
         const allPlayers = allPlayersDataObj(board.players.length, currPlayerIdx)
 
         const generateHands = (numPlayers, websocketsId) => {
-                // debugger
+                // 
             
             // const player2Idx = ((currPlayerIdx + 1) % board.players.length);
             // const player2 = board.players[player2Idx];

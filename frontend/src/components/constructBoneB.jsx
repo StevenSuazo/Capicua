@@ -6,7 +6,7 @@ import Bone from "./boneB"
 export const constructBone = (reactKeyVal, draggable, x, y, width, height,
     source, rotation, inArena, offsetX = 0, offsetY = 0, offSetCenter = 0, 
     boneIdx = 99, updateGame = undefined, arena, gameState = undefined) => {
-        // debugger
+        // 
     return <Bone
     key={reactKeyVal} 
     draggable={draggable}

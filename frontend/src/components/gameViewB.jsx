@@ -19,7 +19,7 @@ import Navbar from './navbar.jsx';
 // const Navbar = require('./navbar.jsx');
 
 export const GameViewComponent = (props) => {
-   // debugger
+   // 
    return (
       <div className="master-game-container">
          <Navbar />

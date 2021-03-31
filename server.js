@@ -275,7 +275,6 @@ io.on('connection', socket => {
             }
         } else {
           // move is invalid
-            // debugger
             room.board.currentPlayer.hand.splice(boneIdx, 0, currentBone); 
             
             //emit gameState

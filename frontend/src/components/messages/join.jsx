@@ -36,7 +36,7 @@ class Join extends React.Component{
   componentDidMount(){
     // this.socket = io(HOST);
     this.socket = io(HOST);
-    // debugger
+    // 
 
     this.socket.on('connect', socket => {
 
@@ -57,16 +57,16 @@ class Join extends React.Component{
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
+    // 
     // if(prevProps.history.location.state.phase == "prelobby"){
     //   if(prevProps.history.location.state.phase !== this.state.phase){
-    //     debugger
+    //     
     //     this.socket.emit("askingForGameState", this.roomName)
     //   }
     // }
 
     // if(this.state.phase === "soloLobby"){
-    //   debugger
+    //   
     //   this.socket.emit("askingForGameState", this.roomName)
     // }
   }
@@ -76,7 +76,7 @@ class Join extends React.Component{
   }
 
   handleStartSolo() {
-    // debugger
+    // 
     this.socket.emit("startSoloGame", {username: this.state.username});
     this.setState({ roomName: this.socket.id });
   }
@@ -86,17 +86,17 @@ class Join extends React.Component{
   }
 
   handlePhaseChange(phase){
-    // debugger
+    // 
     this.setState({phase: phase})
-    // debugger
+    // 
     // this.receiveGameState()
 
   }
 
   receiveGameState(gameState) {
-    // debugger
+    // 
     this.setState({ gameState: gameState });
-    // debugger
+    // 
   }
 
     render(){
@@ -151,7 +151,7 @@ class Join extends React.Component{
                 )
 
               case "soloLobby":
-                // debugger
+                // 
 
                 if(this.state.gameState){
                     return (
@@ -175,7 +175,7 @@ class Join extends React.Component{
       
       showInputField = chooseGameType();
       displayPhase = displayPhaseFn();
-      // debugger
+      // 
 
       return (
         <>

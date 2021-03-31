@@ -28,13 +28,13 @@ class Boneyard extends React.Component{
         // this.showDrawAlert()
         if (this.props.boneyardLength < (28 - (this.props.playerLength * 7)) && 
         (prevProps.boneyardLength !== this.props.boneyardLength)) {
-            // debugger
+            // 
             this.diff = prevProps.boneyardLength - this.props.boneyardLength;
 
             if(this.diff !== 0){
                 this.setState({ drawImageToggle: true }, () => {
                 this.oldTimerId = setTimeout(() => {
-                    // debugger
+                    // 
                     this.setState({drawImageToggle: false})
                 }, 2000);
             });
@@ -51,7 +51,7 @@ class Boneyard extends React.Component{
     }
 
     componentWillUnmount() {
-        // debugger
+        // 
         this.image.removeEventListener('load', this.handleLoad);
         clearTimeout(this.oldTimerId)
     }

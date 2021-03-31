@@ -57,7 +57,7 @@ class Bone extends React.Component {
   handleLoad = () => {
     // after setState react-konva will update canvas and redraw the layer
     // because "image" property is changed
-    // debugger
+    // 
     this.setState({
       board: this.props.board,
       image: this.image,
@@ -89,7 +89,7 @@ class Bone extends React.Component {
 
   // decides where the player wants to play
   mouseUpCoord(e, updateGame) {
-      // debugger
+      // 
       const xPosPlay = e.target.attrs.x 
       const center = e.target.attrs.offSetCenter
 
@@ -121,7 +121,7 @@ class Bone extends React.Component {
       
       // if (!this.props.inArena && yCoord < -50) {
       // if
-      // debugger
+      // 
       if (this.state.board.arena.length <= 15){
         if (yCoord < -50) {
 
@@ -129,7 +129,7 @@ class Bone extends React.Component {
         }
 
       } else {
-        // debugger
+        // 
 
         const halfBoardHeight = (this.props.board.boardDimen / 2);
         const absPos = e.target.getAbsolutePosition();
@@ -137,10 +137,10 @@ class Bone extends React.Component {
         
         if (yCoord < -50){
           if (absPos.y < halfBoardHeight){
-            // debugger
+            // 
             updateGame(absPos.y, halfBoardHeight, boneIdx);
         } else {
-          // debugger
+          // 
             updateGame(absPos.y, halfBoardHeight, boneIdx);
         }
         }
@@ -150,7 +150,7 @@ class Bone extends React.Component {
           // console.log(e.target)
     }
     slideUp(e){
-      // debugger
+      // 
       // console.log(`thisX: ${e.target.attrs.x}`)
       // console.log(`thisY: ${e.target.attrs.y}`)
       // console.log(this.absolutePosition())

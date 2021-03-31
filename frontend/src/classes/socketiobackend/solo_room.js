@@ -22,7 +22,7 @@ class SoloRoom {
 
         let showModalBoolean;
 
-        // debugger
+        // 
         // let inSession = this.board.isCurrentGameOver();
         // io: this.board.io,
         // return{   
@@ -45,7 +45,7 @@ class SoloRoom {
         const { [removeProp]: remove, 
                 [removeProp2]: remove2, 
             ...currentPlayer } = this.board.currentPlayer;
-        // debugger
+        // 
 
         const players = []
         for(let i = 0; i < this.board.players.length; i++){
