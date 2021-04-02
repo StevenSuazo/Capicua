@@ -1,5 +1,5 @@
 const BoardObject = require("../boardB");
-const Player = require("../playerB");
+// const Player = require("../playerB");
 
 class Room {
     constructor(numPlayers, roomName, io,){
@@ -34,11 +34,6 @@ class Room {
         })
     }
 
-    // resetFauxBoneyard(numPlayers){
-    //    this.board.boneyard.bones = this.board.boneyard.resetBoneyardForRestart(numPlayers);
-
-    // }
-
     sendGameState(){
 
         let showModalBoolean;
@@ -68,7 +63,7 @@ class Room {
             playerObj["isAi"] = player.isAi;
             playerObj["id"] = player.id
             players.push(playerObj)
-        })
+        }``
 
         return {arena: this.board.arena,
                 boneyard: this.board.boneyard,

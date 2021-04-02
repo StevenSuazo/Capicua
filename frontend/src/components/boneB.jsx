@@ -45,7 +45,7 @@ class Bone extends React.Component {
     //   // 
     //   this.loadImage();
     // }
-    if(oldProps != this.props){
+    if(oldProps !== this.props){
       this.loadImage();
     }
     

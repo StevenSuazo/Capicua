@@ -1,16 +1,11 @@
 import React from "react";
 import Board from "./board"
 import BoardObject from "../classes/board"
-import { set } from "mongoose";
 import {allDominos} from "./allDominos"
-import Chat from './messages/chat.jsx';
 import Score from './gameScore.jsx';
 import Countdown from "./countdownS";
 
-//testing
-// import Countdown from "./countdownS"
-
-
+// for TESTING only
 //one player game below
 // const axiosPlayerObj = [{username: "Steven"}]
 
@@ -24,8 +19,8 @@ import Countdown from "./countdownS";
 // const axiosPlayerObj = [{username: "Steven"}, {username: "TinyPigOink!"}, {username: "idrakeUfake"} ]
 
 //3 player. 1 human 2 ai
-const axiosPlayerObj = [{ username: "Steven" }, { username: "TinyPigOink!", isAi: true },
-{ username: "idrakeUfake!", isAi: true }]
+// const axiosPlayerObj = [{ username: "Steven" }, { username: "TinyPigOink!", isAi: true },
+// { username: "idrakeUfake!", isAi: true }]
 
 //three player AI below
 // const axiosPlayerObj = [{username: "Steven", isAi: true}, {username: "TinyPigOink!", isAi: true}
@@ -34,9 +29,6 @@ const axiosPlayerObj = [{ username: "Steven" }, { username: "TinyPigOink!", isAi
 //4 player below
 // const axiosPlayerObj = [{ username: "Steven" }, { username: "TinyPigOink!", isAi: true}, 
 //     { username: "idrakeUfake!", isAi: true}, { username: "prophecy!", isAi: true}]
-
-
-
 
 // 4 player ai below
 // const axiosPlayerObj = [{username: "Steven", isAi: true}, {username: "TinyPigOink!", isAi: true}
@@ -88,17 +80,17 @@ class Game extends React.Component {
 
     forceAiAutoPlay(){
         if(this.state.board.currentPlayer.isAi === true){
-                // 
+                
                 if(!this.hasAiGone){
                     this.oldArenaLen = this.state.board.arena.length;
 
                     while(this.state.board.arena.length === this.oldArenaLen && this.state.board.inSession){
-                        // 
+                        
                         this.updateGame(...this.state.board.currentPlayer.aiAutoPlay("easy"))
                     }
                     this.hasAiGone = true;
                 }
-                // 
+                
                 this.hasAiGone = false;
         }
     }

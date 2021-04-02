@@ -1,6 +1,4 @@
 import React from "react";
-// import useImage from 'use-image';
-// import Konva from "konva";
 import { Group, Image, Text } from 'react-konva';
 import YourMove from '../assets/img/modals/yourMove.png'
 import OppMove from '../assets/img/modals/oppMove.png'
@@ -102,20 +100,20 @@ class YourTurn extends React.Component {
                 this.imageNode = node;
               }} />
           </Group> : null}
-        {this.props.players.length == 2 ?
+        {this.props.players.length === 2 ?
           <Group>
             <Text {...this.textFor0} />
             <Text {...this.textFor1} />
 
           </Group> : null}
-        {this.props.players.length == 3 ?
+        {this.props.players.length === 3 ?
           <Group>
             <Text {...this.textFor0} />
             <Text {...this.textFor1} />
             <Text {...this.textFor2} />
 
           </Group> : null}
-        {this.props.players.length == 4 ?
+        {this.props.players.length === 4 ?
           <Group>
             <Text {...this.textFor0} />
             <Text {...this.textFor1} />

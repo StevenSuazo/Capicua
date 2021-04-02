@@ -1,13 +1,15 @@
 import React from "react";
 import '../stylesheets/gameScore.css';
-const currentPlayer = {username: "sergio", score: 68}
-const names = [
-    {username: "sergio", score: 68},
-    {username: "yangel", score: 63},
-    {username: "chris", score: 62},
-    {username: "steven", score: 61}
 
-]
+// for TESTING only
+// const currentPlayer = {username: "sergio", score: 68}
+// const names = [
+//     {username: "sergio", score: 68},
+//     {username: "yangel", score: 63},
+//     {username: "chris", score: 62},
+//     {username: "steven", score: 61}
+
+// ]
  
 class Score extends React.Component {
     
@@ -24,10 +26,6 @@ class Score extends React.Component {
 
         return(
             <div className="score-box-container">
-            
-                {/* <div className="current-player">{currentPlayer.username} </div> */}
-                
-                
                 <div className="name-and-points">
                 {nameScores}
                 </div>

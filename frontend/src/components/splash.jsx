@@ -10,7 +10,7 @@ import bodega from "../assets/img/La_Bodega.jpg"
 import hireMe from "../assets/img/icons/hireMe.png"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faGithubSquare, faLinkedin, faWpforms} from "@fortawesome/free-brands-svg-icons"
+import {faGithubSquare, faLinkedin} from "@fortawesome/free-brands-svg-icons"
 
 
 
@@ -20,7 +20,6 @@ class Splash extends React.Component {
     // <i class="fab 
         const github = <FontAwesomeIcon icon={faGithubSquare} size="3x" />
         const linkedIn = <FontAwesomeIcon icon={faLinkedin} size="3x" />
-        const resume = <FontAwesomeIcon icon={faWpforms} size="3x" />
     return (
       <div>
         <h1 className="capicua-title">

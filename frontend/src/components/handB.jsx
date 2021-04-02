@@ -1,6 +1,5 @@
 import React from "react";
 import {constructBone} from "./constructBoneB";
-import {Text} from 'react-konva';
 
 
 
@@ -11,22 +10,16 @@ class Hand extends React.Component {
         this.state = {
             gameState: undefined
         }
-
-        // this.renderedHand = [];
-        // this.thisPlayerIdx;
     }
 
     componentDidMount(){
         this.setState({gameState: this.props.gameState})
-        // 
     }
 
     componentDidUpdate(prevProps, prevState){
 
         if(prevState.gameState !== undefined){
-            // 
-            if(prevState.gameState.players != this.props.gameState.players){
-                // 
+            if(prevState.gameState.players !== this.props.gameState.players){
                 this.setState({gameState: this.props.gameState })
             }
         }
@@ -49,11 +42,10 @@ class Hand extends React.Component {
 
     render(){
 
-        const {gameState, hand, socket, allDominos, boneValToString, offSetCenter,
+        const {gameState, socket, allDominos, boneValToString, offSetCenter,
         boneWidth, boneHeight, thisPlayerIdx} = this.props;
 
         let renderedHand = null
-        // let thisPlayerIdx;
         let totalLengthHand;
 
 
@@ -114,8 +106,7 @@ class Hand extends React.Component {
 
             }
             
-        }
-        // 
+        } 
          return(
                 <>          
                  {renderedHand}

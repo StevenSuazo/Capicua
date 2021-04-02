@@ -28,10 +28,6 @@ class Chat extends Component {
     const message = { name: this.state.name, message: messageString }
     this.props.socket.emit("sendMessage", message);
   }
-  
-  // addMsg(message) {
-  //   this.setState({ messages: [message, ...this.state.messages] })
-  // }
 
   addMsg = message =>
     this.setState(state => ({ messages: [message, ...state.messages] }))

@@ -1,12 +1,7 @@
 import React from "react";
-import useImage from 'use-image';
-import Bone from "./bone"
-import Konva from "konva";
 import { Group, Image, Text } from 'react-konva';
 import Draw from '../assets/img/modals/draw.png'
 import BoneyardRemaining from '../assets/img/modals/boneYardBox.png'
-//blank domino
-// import domino01 from '../assets/img/dominos_pieces_vector_svg/dominos_bone_0:1.svg';
 
 class Boneyard extends React.Component{
     constructor(props){
@@ -120,18 +115,6 @@ class Boneyard extends React.Component{
                 }, 1500)
 
             }
-                //this code is perfect
-                // this.setState({ drawImageToggle: true}, () => {
-                //     setTimeout(() => {this.setState({ drawImageToggle : false })
-                //         }, 2000);
-                //     })
-                // }
-                //perfect ^^
-            
-
-        // if (prevProps.src !== this.props.src) {
-        //     this.loadImage();
-        // }
         }
     }
     

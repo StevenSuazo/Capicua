@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React from 'react';
 import io from "socket.io-client";
 import HOST from "../../util/host";
 import {GameViewComponent} from '../gameView';
@@ -50,25 +49,6 @@ class Join extends React.Component{
                    buttonText: this.props.location.state.buttonText,
                    totalPlayers: this.props.location.state.totalPlayers
                   }) 
-
-    // if(this.state.phase === "solo"){
-    //     this.socket.emit("askingForGameState", this.roomName)
-    // }
-  }
-
-  componentDidUpdate(prevProps) {
-    // 
-    // if(prevProps.history.location.state.phase == "prelobby"){
-    //   if(prevProps.history.location.state.phase !== this.state.phase){
-    //     
-    //     this.socket.emit("askingForGameState", this.roomName)
-    //   }
-    // }
-
-    // if(this.state.phase === "soloLobby"){
-    //   
-    //   this.socket.emit("askingForGameState", this.roomName)
-    // }
   }
 
   update(field){
@@ -86,17 +66,12 @@ class Join extends React.Component{
   }
 
   handlePhaseChange(phase){
-    // 
     this.setState({phase: phase})
-    // 
-    // this.receiveGameState()
 
   }
 
   receiveGameState(gameState) {
-    // 
     this.setState({ gameState: gameState });
-    // 
   }
 
     render(){
@@ -151,7 +126,6 @@ class Join extends React.Component{
                 )
 
               case "soloLobby":
-                // 
 
                 if(this.state.gameState){
                     return (
@@ -175,7 +149,6 @@ class Join extends React.Component{
       
       showInputField = chooseGameType();
       displayPhase = displayPhaseFn();
-      // 
 
       return (
         <>

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React from 'react';
 import io from "socket.io-client";
 import HOST from "../../util/host";
 import { GameViewComponent } from '../gameViewB';
@@ -8,18 +7,6 @@ import Lobby from "./lobby"
 import { capitalize, truncate } from "../../util/strUtil"
 import bodega from "../../assets/img/La_Bodega.jpg"
 import './join.css';
-
-// const React = require('react');
-// const { Link } = require("react-router-dom");
-// const io = require("socket.io-client");
-// const HOST = require("../../util/host");
-// const { GameViewComponent } = require('../gameViewB');
-// const ChooseAi = require("../chooseAi");
-// const Lobby = require("./lobby");
-// const { capitalize, truncate } = require("../../util/strUtil");
-// const bodega = require("../../assets/img/La_Bodega.jpg");
-// require ('./join.css');
-
 
 class Join extends React.Component {
   constructor(props) {
@@ -104,21 +91,6 @@ class Join extends React.Component {
     // }
   }
 
-  componentDidUpdate(prevProps) {
-    // 
-    // if(prevProps.history.location.state.phase == "prelobby"){
-    //   if(prevProps.history.location.state.phase !== this.state.phase){
-    //     
-    //     this.socket.emit("askingForGameState", this.roomName)
-    //   }
-    // }
-
-    // if(this.state.phase === "soloLobby"){
-    //   
-    //   this.socket.emit("askingForGameState", this.roomName)
-    // }
-  }
-
   update(field) {
     let truncated;
     return e => {
@@ -137,7 +109,7 @@ class Join extends React.Component {
 
   handleStartSoloServer(e, isOnline) {
 
-    if (this.state.username != "") {
+    if (this.state.username !== "") {
       if (isOnline) {
         this.socket.emit("startSoloGame", { username: this.state.username });
         this.setState({ roomName: this.socket.id });
@@ -216,16 +188,10 @@ class Join extends React.Component {
       this.setState({ phase: phase })
 
     }
-
-    // 
-    // this.receiveGameState()
-
   }
 
   receiveGameState(gameState) {
-    // 
     this.setState({ gameState: gameState });
-    // 
   }
 
   receiveAiAutoPlayData(aiMove) {
@@ -249,14 +215,13 @@ class Join extends React.Component {
   }
 
   generateAiPlayers() {
-    // 
     let players = []
 
     players.push({ username: capitalize(this.state.username) })
 
     const aiNames = ["Juan", "Moana", "Diane", "Suaz",
       "Carlos", "Kora", "Wally", "Chris", "Drake", "Nilo",
-      "Virgil", "Luffy", "Casca", "Mai", "Mia"]
+      "Virgil", "Luffy", "Casca", "Mai"]
 
     let aiPlayer;
     const existingUsernames = {}

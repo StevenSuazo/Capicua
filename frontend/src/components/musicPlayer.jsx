@@ -4,7 +4,7 @@ import basic from'../assets/music/BasicMusic.mp3'
 import mild from'../assets/music/mildMusic.mp3'
 import Caliente from'../assets/music/calienteMusic.mp3'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause, faStop, faVolumeUp, faVolumeMute  } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faPause} from '@fortawesome/free-solid-svg-icons'
 
 
 const track1 = basic;
@@ -74,9 +74,6 @@ class Music extends React.Component {
     render(){
         const playBtn = <FontAwesomeIcon className="control-btn" icon={faPlay} />
         const pauseBtn = <FontAwesomeIcon className="control-btn" icon={faPause} />
-        const stopBtn = <FontAwesomeIcon className="control-btn" icon={faStop} />
-        const volBtn = <FontAwesomeIcon className="control-btn" icon={faVolumeUp} />
-        const volMuteBtn = <FontAwesomeIcon className="control-btn" icon={faVolumeMute} />
         const divPlayBtn = <div >
             {/* this is what chooses if the play button or pause button appears, 
         also when no track is selected chooses plain track to play first */}

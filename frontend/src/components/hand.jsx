@@ -17,7 +17,7 @@ class Hand extends React.Component {
 
     render(){
         const {board, allDominos, boneValToString, offSetCenter,
-            boneWidth, boneHeight, thisPlayerIdx} = this.props;
+            boneWidth, boneHeight} = this.props;
         // this will need to be changed to the axios player ID. 
         // SOLELY FOR TESTING...
         let renderedHand = null;

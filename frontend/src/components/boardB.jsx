@@ -7,30 +7,11 @@ import OtherHands from "./otherHandsB"
 import Boneyard from "./boneyardServer"
 import { allDominos } from "./allDominos"
 
-// const { Stage, Layer, Group, Text } = require("react-konva");
-// const BoneL = require("../classes/bone");
-// const Hand = require("./handB");
-// const Arena = require("./arenaB");
-// const OtherHands = require("./otherHandsB");
-// const Boneyard = require("./boneyardServer");
-// const { allDominos } = require("./allDominos");
-// const React = require('react');
-
-
 class Board extends React.Component {
-
-    componentDidMount(){
-        // this.getNums()
-    }
-
-    attachImages(){
-        // const
-    }
 
     findPlayerOnThisSocket = () => {
             let num;
 
-            // 
             for(let i = 0; i < this.props.gameState.players.length; i++){
                 if (this.props.gameState.players[i].id === this.props.socket.id){
 
@@ -51,7 +32,7 @@ class Board extends React.Component {
         const boneNotRevYPos = ((boneWidth / 2) * 3);
         const thisPlayerIdx = this.findPlayerOnThisSocket();
 
-        let {arena, currentPlayer, socket} = this.props.gameState;
+        let {arena, currentPlayer} = this.props.gameState;
 
         arena = arena.map(boneOptions => {
                 return (new BoneL(boneOptions.boneVal, boneOptions.isReversed))
