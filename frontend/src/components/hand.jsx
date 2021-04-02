@@ -15,16 +15,6 @@ class Hand extends React.Component {
         this.setState({ gameState: this.props.board })
     }
 
-
-    // componentDidUpdate(prevProps, prevState){
-    //     if (prevState.gameState) {
-    //         
-    //         if (prevState.gameState.currentPlayer != this.state.gameState.players[0]){
-    //             this.setState({gameState: this.state.gameState })
-    //         }
-    //     } else { console.log("null") }
-    // }
-
     render(){
         const {board, allDominos, boneValToString, offSetCenter,
             boneWidth, boneHeight, thisPlayerIdx} = this.props;

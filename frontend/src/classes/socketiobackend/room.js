@@ -19,10 +19,7 @@ class Room {
     }
 
     createGame(){
-        // console.log("new room new multiplayer game")
         this.board = new BoardObject(this.players, 900, this.roomName, this.io)
-
-        // console.log(this.board)
     }
 
     newNextRound(){
@@ -71,10 +68,7 @@ class Room {
             playerObj["isAi"] = player.isAi;
             playerObj["id"] = player.id
             players.push(playerObj)
-        }
-
-        // showModalBoolean = (!this.board.inSession || this.board.lockedGame)
-        // console.log(`Show modal:? ${showModalBoolean}`)
+        })
 
         return {arena: this.board.arena,
                 boneyard: this.board.boneyard,

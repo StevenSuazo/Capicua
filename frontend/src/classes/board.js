@@ -101,13 +101,6 @@ class Board {
             for(let i = 0; i < 7; i++){  
                 player.hand.push(this.boneyard.bones.pop());
             }
-            
-            
-            // // //TESTING ONLY -- DELETE FOR PRODUCTION
-            // console.log(`${player.username} below`)
-            // //     player.hand.forEach(boneObj => {
-            //         console.log(boneObj.boneVal);
-            // //     })
         });
     }
 
@@ -206,23 +199,11 @@ class Board {
 
     //Changes currentPlayer to the next player
     nextPlayerAssignTurn(){
-        // console.log(`is next: ${this.currentPlayer.username}`)
-        //    Or curry sum here??
         let idxCurrPlayer ;
         idxCurrPlayer = this.players.indexOf(this.currentPlayer)   
 
         this.currentPlayer = this.players[((idxCurrPlayer + 1) % this.players.length)]
         let isGameLocked = undefined;
-        // 
-
-
-        // TESTING PURPOSES ONLY DELETE LATER //
-        // console.log("*************");
-        // 
-        // console.log("NEW CURRENT PLAYER && Hand");
-        // console.log(this.currentPlayer.username);
-        // this.currentPlayer.revealHand()
-        // console.log("*************");
 
         // if NEW currentPlayer CANNOT make a valid move... 
         if(!this.currentPlayer.hasPlayableBones()){
@@ -269,15 +250,10 @@ class Board {
     }
 
     makeMove(xPosPlay, center, bone){
-        // 
         // extracting the far left number on the arena
         const arenaLeftBoneVal = this.arena[0].boneVal[0];
         // extracting the far right number on the arena
         const arenaRightBoneVal = this.arena[this.arena.length-1].boneVal[1];
-        // console.log(`is Ai ${this.currentPlayer.isAi}`)
-        // console.log(arenaLeftBoneVal)
-        // console.log(arenaRightBoneVal)
-        // console.log(bone)
         // Player plays left side
         if(xPosPlay < center){
             
@@ -306,16 +282,12 @@ class Board {
             
             bone.boneReverse();
             this.arena.unshift(bone);
-            // console.log("played left successfully");
-            // console.log("rotate SVG +90 degrees");
 
             return true;
         } else if(bone.boneVal[1] === arenaLeftBoneVal){
             
             //bone bottom val playable on left - as is. just rotate svg -90
             this.arena.unshift(bone);
-            // console.log("played left successfully");
-            // console.log("rotate SVG -90 degrees");
 
             return true;
         } else {
@@ -337,15 +309,11 @@ class Board {
             
                 bone.boneReverse();
                 this.arena.push(bone);
-                // console.log("played right successfully");
-                // console.log("rotate SVG +90 degrees");
 
                 return true;
             } else if(bone.boneVal[0] === arenaRightBoneVal){
                 
                 this.arena.push(bone);
-                // console.log("played right successfully");
-                // console.log("rotate SVG -90 degrees");
 
                 return true;
             } else {
@@ -373,21 +341,14 @@ class Board {
     // Renders Arena for Terminal
     renderArena(){
         if (this.arena.length === 0){
-
-            // console.log("THE~~~ARENA");
-            // console.log("[]");
             return "[]"
 
         }else{
             let arenaString = ""
 
-            // console.log("THE~~~~ARENA");
-
             this.arena.forEach(bone => {
                 arenaString += `[${bone.boneVal[0]}, ${bone.boneVal[1]}] ${bone.isReversed}, `
             })
-            // console.log(`Arena Len: ${this.arena.length} IDX is ${this.arena.length - 1} `)
-            // console.log(`Boneyard Remaining: ${this.boneyard.bones.length}`)
             return arenaString
         }
 
@@ -400,8 +361,6 @@ class Board {
             this.inSession = false;
             this.winningPlayer = this.currentPlayer;
             this.tallyAllPointsForWinner();
-            // console.log(`${this.winningPlayer.username} has won this round.`)
-            // console.log(this.currentPlayer.points)
 
             return true;
         }
@@ -429,12 +388,6 @@ class Board {
             this.tallyAllPointsForWinner();
             // this.currentPlayer.points -= lowestTotalScore;
             this.winningPlayer.points -= lowestTotalScore;
-
-            //Update db of current state of game to reflect player's score
-            // console.log(`${this.winningPlayer.username}` + 'wins & has ' + `${this.winningPlayer.points}`)
-            // console.log(`players hand points: ${totalHandValues}`)
-            // 
-            // console.log('this game is locked');
             return true
         }
         return false;
@@ -455,13 +408,8 @@ class Board {
     }
 
     endGame(){
-        //for TESTING. REMOVE
-        // this.winningPlayer = this.currentPlayer;
-        //for TESTING. REMOVE
         if (this.winningPlayer.points >= 80){
-            // console.log('Thanos has won');
             return true
-            //MongoDB stuff to save the winner
         }
         return false
     }
@@ -469,10 +417,7 @@ class Board {
     addOneToSkipCounter(){
         this.skipCounter += 1;
 
-        // console.log(`skip counter :${this.skipCounter}`)
-
         if (this.skipCounter >= this.players.length){
-        // if (this.skipCounter >= 4){
             this.lockedGame = true;
             return this.isCurrentGameOver();
 

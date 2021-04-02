@@ -12,10 +12,7 @@ class SoloRoom {
 
 
     createGame(){
-        // console.log("new room new solo game")
         this.board = new BoardObject(this.playerData, 900, this.roomName, this.io)
-
-        // console.log(this.board)
     }
 
     sendGameState(){
@@ -59,7 +56,6 @@ class SoloRoom {
         }
             
         showModalBoolean = (!this.board.inSession || this.board.lockedGame)
-        // console.log(`Show modal:? ${showModalBoolean}`)
         
         return {arena: this.board.arena,
                 boneyard: this.board.boneyard,

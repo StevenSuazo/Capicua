@@ -70,20 +70,7 @@ class OtherHands extends React.Component {
             return renderedHand
         }
 
-        // let currPlayerIdxFn = () => {
-        //     let idx;
-        //     for (let i = 0; i < gameState.players.length; i++) {
-        //         if (gameState.players[i].username === gameState.currentPlayer.username) {
-        //             idx = i;
-        //         }
-        //     }
-        //     // 
-        //     return idx;
-        // }
-        
-        // gameState.players.indexOf(gameState.currentPlayer); 
         const currPlayerIdx = this.props.thisPlayerIdx;
-        // console.log(currPlayerIdx)
 
         // allPlayers[someIdx]
         //The important thing here is that the index to access allPlayers Obj will

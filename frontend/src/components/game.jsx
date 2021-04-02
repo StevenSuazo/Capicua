@@ -221,13 +221,6 @@ class Game extends React.Component {
 
         }
         
-
-        //console.log(this.state.board.renderArena())
-        //console.log("Arena ^..hand below")
-        // this.state.board.currentPlayer.revealHand()
-        //console.log(this.state.board.currentPlayer.revealHand())
-        // 
-        //console.log(`^^'s points: ${this.state.board.currentPlayer.points}`)
     }
 
     render(){

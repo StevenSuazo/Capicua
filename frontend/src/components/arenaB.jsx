@@ -179,7 +179,6 @@ class Arena extends React.Component {
             } else if(idx < 8) {
 
                 if (bone.isDouble()){
-                    // console.log(`totalXPOS: ${totalXPos}`)
 
                     return constructBone(reactKeyVal, false,
                     totalXPos, 0, boneWidth, boneHeight, allDominos[boneStrArr[0]],
@@ -208,7 +207,6 @@ class Arena extends React.Component {
             
             // this is where the bones make a turn down
             else if (idx >= 8 && idx <= 18){
-                // console.log(`totalYPos: ${totalYPos}`)
             
                 switch(lastBoneData.isDouble){
                     case true:
@@ -277,10 +275,6 @@ class Arena extends React.Component {
             // above ends idx up to 19
             // else if(idx >= 19){
             else {
-
-                // console.log(`IDX is 19 or +`)
-                // console.log(`totalYPos: ${totalYPos}`)
-                // console.log(`totalBottRowPos: ${bottomRowTotalPos}`)
 
                 switch(lastBoneData.isDouble){
                     case true:

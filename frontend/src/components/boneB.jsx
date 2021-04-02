@@ -90,14 +90,6 @@ class Bone extends React.Component {
     // this.imageNode.getLayer().batchDraw();
   };
 
-
-  mouseDownStartCoord(e){
-
-    // console.log(`MDX: ${e.target.attrs.x}`)
-    // console.log(`MDY: ${e.target.attrs.y}`)
-    // console.log("------")
-  }
-
   // decides where the player wants to play
   mouseUpCoord(e, updateGame) {
       // 
@@ -112,12 +104,6 @@ class Bone extends React.Component {
       // const boneIdx = e.target.attrs.boneIdx
 
       const yCoord = e.target.attrs.y
-      
-      // console.log(`BoneIdxIs: ${e.target.attrs.boneIdx}`)
-      // console.log(`konvaBoneIdxIs: ${boneIdx}`)
-      // console.log(`Center: ${e.target.attrs.offSetCenter}`)
-      // console.log(`X: ${e.target.attrs.x}`)
-      // console.log(`Y: ${e.target.attrs.y}`)
 
 
       // Remember to remove the left side of IF statement
@@ -145,7 +131,6 @@ class Bone extends React.Component {
         // const halfBoardHeight = (this.props.board.boardDimen / 2);
         const halfBoardHeight = (this.props.gameState.boardDimen / 2);
         const absPos = e.target.getAbsolutePosition();
-        // console.log(`AbsPos: x:${absPos.x} y: ${absPos.y}`)
         
         if (yCoord < -50){
           if (absPos.y < halfBoardHeight){
@@ -163,13 +148,9 @@ class Bone extends React.Component {
 
       }
       
-          // console.log(e.target)
     }
+
     slideUp(e){
-      // 
-      // console.log(`thisX: ${e.target.attrs.x}`)
-      // console.log(`thisY: ${e.target.attrs.y}`)
-      // console.log(this.absolutePosition())
       
       if(!this.attrs.inArena){
         this.to({
@@ -219,9 +200,6 @@ class Bone extends React.Component {
       if (boneBox.y + boneBox.height > boardHeight) {
         newAbsPos.y = boardHeight - boneBox.height
       }
-
-      // console.log(`newAbsPos: x:${newAbsPos.x} y: ${newAbsPos.y}`)
-
       e.target.setAbsolutePosition(newAbsPos)
 
     }
