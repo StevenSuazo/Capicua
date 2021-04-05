@@ -7,14 +7,14 @@ import Navbar from './navbar.jsx';
 
  export const GameViewComponent = (props) => {
 
-   //  
+   // debugger
      return (
         <div className="master-game-container flex-col-start">
 
            <Navbar/>
 
            <div className="flex-row-start">
-                 <Game gamePlayers={props.history.location.state.players}/> 
+              <Game gamePlayers={props.history.location.state.players} heightDimen={window.innerHeight - 65}/>
            </div>
            <img src={bodega} alt="bodega" className="bodega-img" ></img>
         </div>

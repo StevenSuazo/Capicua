@@ -12,7 +12,7 @@ class SoloRoom {
 
 
     createGame(){
-        this.board = new BoardObject(this.playerData, 900, this.roomName, this.io)
+        this.board = new BoardObject(this.playerData, 500, this.roomName, this.io)
     }
 
     sendGameState(){

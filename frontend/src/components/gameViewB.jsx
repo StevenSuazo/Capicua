@@ -5,6 +5,7 @@ import bodega from "../assets/img/La_Bodega.jpg"
 import Navbar from './navbar.jsx';
 
 export const GameViewComponent = (props) => {
+   // debugger
    return (
       <div className="master-game-container">
          <Navbar />

@@ -126,7 +126,7 @@ class GameB extends React.Component {
         }
                    
 
-        
+        debugger
         return (
             <>
                 <div className="board-score-container flex-row-start">

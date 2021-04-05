@@ -6,17 +6,11 @@ import {constructBone} from "./constructBone";
 
 class OtherHands extends React.Component {
 
-    // componentDidUpdate(prevProps){
-    //     if (){
-
-    //     }
-    // }
-
-
     render() {
-        const {board, boardDimen, boneWidth,
+        const {board, heightDimen, boneWidth,
             boneHeight, boneValToString, allDominos} = this.props;
-
+            
+            debugger
         const renderHandFn = (player, offSetCenter, playerIdx, currPlayerIdx) => {
             
             // {username, offset, 1, 1}
@@ -107,7 +101,7 @@ class OtherHands extends React.Component {
                 allPlayers[j % numPlayers].player = board.players[allPlayers[j % numPlayers].playerIdx];
                 allPlayers[j % numPlayers].playerHand = allPlayers[j % numPlayers].player.hand;
                 allPlayers[j % numPlayers].offSetCenter = ((allPlayers[j % numPlayers].playerHand.length / 2) * ((boneWidth / 3) + boneWidth));
-                allPlayers[j % numPlayers].startBoxforPlayerHand = ((boardDimen / 2) - allPlayers[j % numPlayers].offSetCenter);
+                allPlayers[j % numPlayers].startBoxforPlayerHand = ((heightDimen / 2) - allPlayers[j % numPlayers].offSetCenter);
                 allPlayers[j % numPlayers].renderedHandPlayer = renderHandFn(allPlayers[j % numPlayers].player,
                          allPlayers[j % numPlayers].offSetCenter,
                          (allPlayers[j % numPlayers].playerIdx), currPlayerIdx)
@@ -126,7 +120,7 @@ class OtherHands extends React.Component {
             // const player2 = board.players[player2Idx];
             // const player2Hand = player2.hand;
             // const offSetCenterP2 = ((player2Hand.length / 2) * 40);
-            // const startBoxforPlayer2Hand = ((boardDimen / 2) - offSetCenter);  
+            // const startBoxforPlayer2Hand = ((heightDimen / 2) - offSetCenter);  
 
             // const renderedHandplayer2 = renderHandFn(player2, offSetCenter, player2Idx, "cdt")
             const player2Idx = ((currPlayerIdx + 1) % board.players.length);
@@ -163,7 +157,7 @@ class OtherHands extends React.Component {
                                     {allPlayers[player3Idx].renderedHandPlayer}
                                 </Group>
                                 {/* player on right of board below */}
-                                <Group x={boardDimen - boneHeight} y={allPlayers[player4Idx].startBoxforPlayerHand}>
+                                <Group x={heightDimen - boneHeight} y={allPlayers[player4Idx].startBoxforPlayerHand}>
                                     {allPlayers[player4Idx].renderedHandPlayer}
                                 </Group>
                            </Group>

@@ -1,7 +1,8 @@
 import React from 'react';
 import io from "socket.io-client";
 import HOST from "../../util/host";
-import { GameViewComponent } from '../gameViewB';
+import { GameViewComponent } from '../gameView';
+import { GameViewComponent as GameViewComponentB } from '../gameViewB';
 import ChooseAi from "../chooseAi"
 import Lobby from "./lobby"
 import { capitalize, truncate } from "../../util/strUtil"
@@ -29,10 +30,11 @@ class Join extends React.Component {
       placeholderError: "Choose your Username",
       placeholderErrorRoom: "Room Name",
       lobbyPlayers: [],
-      playerDisconnected: undefined
-
+      playerDisconnected: undefined,
+      heightDimen: (window.innerHeight - 65)
     }
 
+    // debugger
     this.socket = null;
 
     this.update = this.update.bind(this);
@@ -144,7 +146,8 @@ class Join extends React.Component {
             {
               roomName: this.state.roomName,
               username: this.state.username,
-              numPlayers: this.state.totalPlayers
+              numPlayers: this.state.totalPlayers,
+              heightDimen: this.state.heightDimen
             })
         })
 
@@ -265,9 +268,6 @@ class Join extends React.Component {
     let showInputField;
     let displayPhase;
     let players;
-
-
-
     // FN to generate AI Player objects 
     // const generateAiPlayers = () => {
     // players.push({username: this.state.username})
@@ -437,7 +437,7 @@ class Join extends React.Component {
         case "soloGameStart":
 
           if (this.state.gameState) {
-            return (<GameViewComponent socket={this.socket} gameState={this.state.gameState} />)
+            return (<GameViewComponent gameState={this.state.gameState} heightDimen={this.state.heightDimen}/>)
           } else if (!this.state.isOnline && this.state.players) {
             // 
 
@@ -467,9 +467,10 @@ class Join extends React.Component {
           if (this.state.isOnline) {
             if (!this.state.gameState) this.socket.emit("askingForGameState", this.state.roomName);
             if (this.state.gameState) {
-              return (<GameViewComponent
+              return (<GameViewComponentB
                 socket={this.socket}
-                gameState={this.state.gameState} />)
+                gameState={this.state.gameState} 
+                heightDimen={this.state.heightDimen}/>)
             }
           }
 

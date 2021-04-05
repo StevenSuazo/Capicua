@@ -39,8 +39,8 @@ class Game extends React.Component {
 
     constructor(props){
         super(props)
-        // 
-        const board = new BoardObject(props.gamePlayers, 900)
+        // debugger
+        const board = new BoardObject(this.props.gamePlayers, this.props.heightDimen)
        
         this.state = {
             board: board,
@@ -120,12 +120,12 @@ class Game extends React.Component {
         //start a brand new game with everything reset
         if(isNewGame){
             // 
-            this.setState({ board: new BoardObject(this.props.gamePlayers, 900) })    
+            this.setState({ board: new BoardObject(this.props.gamePlayers, this.props.heightDimen) })    
         } else {
             // 
             // continue on to next round.
             this.previousPlayersArr = this.state.board.players;
-            const board = new BoardObject(this.props.gamePlayers, 900)
+            const board = new BoardObject(this.props.gamePlayers, this.props.heightDimen)
             this.giveBackPointsToPlayers(board);
             this.setState({ board: board })
         }
@@ -257,7 +257,7 @@ class Game extends React.Component {
             <>
                 <div className="board-sidebar-container flex-row-start">
                     {modal}
-                    { this.state.board ? <Board board={this.state.board} updateGame={this.updateGame} /> : null }
+                    {this.state.board ? <Board board={this.state.board} updateGame={this.updateGame} heightDimen={this.props.heightDimen} /> : null }
                     <div className="flex-col-start sidebar-occupy-width">
                         <img className="capicua-domino-lrg" src={allDominos["cd"]}></img>
                         {/* <Chat key={"chat"} players={this.state.board.players}/> */}

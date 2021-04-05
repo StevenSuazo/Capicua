@@ -23,22 +23,23 @@ class YourTurn extends React.Component {
   }
 
   componentDidMount() {
+    const { heightDimen } = this.props;
     this.loadImage();
     switch (this.props.players.length) {
       case 2:
-        this.textFor0 = { x: 430, y: 785, text: this.props.players[0].username, fontSize: 30, fill: "white" };
-        this.textFor1 = { x: 100, y: 400, rotation: 90, text: this.props.players[1].username, fontSize: 20, fill: "white" };
+        this.textFor0 = { x: (heightDimen * 0.47), y: (heightDimen * 0.87), text: this.props.players[0].username, fontSize: 30, fill: "white" };
+        this.textFor1 = { x: (heightDimen * 0.10), y: (heightDimen * 0.444), rotation: 90, text: this.props.players[1].username, fontSize: 20, fill: "white" };
         break;
       case 3:
-        this.textFor0 = { x: 430, y: 785, text: this.props.players[0].username, fontSize: 30, fill: "white" };
-        this.textFor1 = { x: 100, y: 400, rotation: 90, text: this.props.players[1].username, fontSize: 20, fill: "white" };
-        this.textFor2 = { x: 400, y: 70, text: this.props.players[2].username, fontSize: 20, fill: "white" };
+        this.textFor0 = { x: (heightDimen * 0.47), y: (heightDimen * 0.87), fontSize: 30, fill: "white" };
+        this.textFor1 = { x: (heightDimen * 0.10), y: (heightDimen * 0.444), rotation: 90, text: this.props.players[1].username, fontSize: 20, fill: "white" };
+        this.textFor2 = { x: (heightDimen * 0.47), y: (heightDimen * 0.070), text: this.props.players[2].username, fontSize: 20, fill: "white" };
         break;
       case 4:
-        this.textFor0 = { x: 430, y: 785, text: this.props.players[0].username, fontSize: 30, fill: "white" };
-        this.textFor1 = { x: 100, y: 400, rotation: 90, text: this.props.players[1].username, fontSize: 20, fill: "white" };
-        this.textFor2 = { x: 400, y: 70, text: this.props.players[2].username, fontSize: 20, fill: "white" };
-        this.textFor3 = { x: 810, y: 490, rotation: 270, text: this.props.players[3].username, fontSize: 20, fill: "white" };
+        this.textFor0 = { x: (heightDimen * 0.47), y: (heightDimen * 0.87), text: this.props.players[0].username, fontSize: 30, fill: "white" };
+        this.textFor1 = { x: (heightDimen * 0.10), y: (heightDimen * 0.444), rotation: 90, text: this.props.players[1].username, fontSize: 20, fill: "white" };
+        this.textFor2 = { x: (heightDimen * 0.47), y: (heightDimen * 0.070), text: this.props.players[2].username, fontSize: 20, fill: "white" };
+        this.textFor3 = { x: (heightDimen * 0.91), y: (heightDimen * 0.51), rotation: 270, text: this.props.players[3].username, fontSize: 20, fill: "white" };
         break;
       default: 
         break;
@@ -47,19 +48,20 @@ class YourTurn extends React.Component {
 
 
   componentDidUpdate(prevProps) {
+    const { heightDimen } = this.props
     if (prevProps.currentPlayer !== this.props.currentPlayer) {
       switch (this.props.currentPlayer.username) {
         case this.props.players[0].username: 
-          this.setState({ image: this.imageA, drawImageToggle: true, imageX: 380, imageY: 775 })
+          this.setState({ image: this.imageA, drawImageToggle: true, imageX: (heightDimen * 0.42), imageY: (heightDimen * 0.865) })
           break;
         case this.props.players[1].username: 
-          this.setState({ image: this.imageB, drawImageToggle: true, imageX: 70, imageY: 350 })
+          this.setState({ image: this.imageB, drawImageToggle: true, imageX: (heightDimen * 0.072), imageY: (heightDimen * 0.385) })
           break;
         case this.props.players[2].username:
-          this.setState({ image: this.imageB, drawImageToggle: true, imageX: 350, imageY: 60 })
+          this.setState({ image: this.imageB, drawImageToggle: true, imageX: (heightDimen * 0.42), imageY: (heightDimen * 0.067) })
           break;
         case this.props.players[3].username:
-          this.setState({ image: this.imageB, drawImageToggle: true, imageX: 800, imageY: 500 })
+          this.setState({ image: this.imageB, drawImageToggle: true, imageX: (heightDimen * 0.89), imageY: (heightDimen * 0.52) })
           break;
         default:
           break;
@@ -94,8 +96,8 @@ class YourTurn extends React.Component {
           <Group x={this.state.imageX} y={this.state.imageY}>
             <Image
               image={this.state.image}
-              width={40}
-              height={40}
+              width={35}
+              height={35}
               ref={node => {
                 this.imageNode = node;
               }} />
