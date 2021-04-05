@@ -17,7 +17,7 @@ import Countdown from "./countdownS";
 class GameB extends React.Component {
     constructor(props){
         super(props)
-       
+        
         this.state = {
             board: "",
             gameState: undefined
@@ -30,6 +30,7 @@ class GameB extends React.Component {
         this.findCurrPlayer = this.findCurrPlayer.bind(this)
         this.username = undefined;
         this.currPlayerIdx = this.findCurrPlayer();
+        debugger
     }
 
     componentDidUpdate(prevProps) {
@@ -132,7 +133,7 @@ class GameB extends React.Component {
                 <div className="board-score-container flex-row-start">
                     {modal}
                     { this.state.gameState ? <Board gameState={this.state.gameState}
-                    socket={this.props.socket} updateGame={this.updateGame} /> : null }
+                        socket={this.props.socket} updateGame={this.updateGame} heightDimen={this.props.heightDimen} /> : null }
                     <div className="flex-col-start">
                         <Chat board={this.state.board} username={this.username} socket={this.socket} key={"chat"}/>
                         <Score gameState={this.state.gameState} key={999}/>

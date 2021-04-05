@@ -55,7 +55,7 @@ class Chat extends Component {
               onSubmitMessage={messageString => this.submitMessage(messageString)}
             />
         </div>
-          <img className="capicua-domino-lrg" src={allDominos["cd"]}></img>
+          {/* <img className="capicua-domino-lrg" src={allDominos["cd"]}></img> */}
         </div>
 
     )

@@ -5,12 +5,12 @@ import bodega from "../assets/img/La_Bodega.jpg"
 import Navbar from './navbar.jsx';
 
 export const GameViewComponent = (props) => {
-   // debugger
+   debugger
    return (
       <div className="master-game-container">
          <Navbar />
          <div className="board-chat-container flex-row-start">
-            <Game socket={props.socket} gameState={props.gameState} />
+            <Game socket={props.socket} gameState={props.gameState} heightDimen={props.heightDimen} />
             <div className="flex-col-start">
             </div>
          </div>

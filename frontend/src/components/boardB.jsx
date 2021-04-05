@@ -1,6 +1,7 @@
 import React from "react";
 import { Stage, Layer, Group, Text} from 'react-konva';
 import BoneL from "../classes/bone"
+import YourTurn from './yourTurn'
 import Hand from "./handB"
 import Arena from "./arenaB"
 import OtherHands from "./otherHandsB"
@@ -25,9 +26,13 @@ class Board extends React.Component {
     
 
     render(){
-        const boardDimen = this.props.gameState.boardDimen;
-        const boneWidth = 30;
-        const boneHeight = 60;
+        debugger
+        const boardDimen = this.props.heightDimen;
+        // const boneWidth = 30;
+        // const boneHeight = 60;
+        const backgroundDimen = { width: boardDimen, height: boardDimen }
+        const boneWidth = (boardDimen * 0.0333);
+        const boneHeight = (boardDimen * 0.0666);
         const boneIsRevYPos = (boneWidth / 2);
         const boneNotRevYPos = ((boneWidth / 2) * 3);
         const thisPlayerIdx = this.findPlayerOnThisSocket();
@@ -85,7 +90,7 @@ class Board extends React.Component {
            
             // the arena is simply to show the current pieces in play
         return (
-            <div className="board-arena-container">
+            <div className="board-arena-container" style={backgroundDimen}>
             <Stage width={boardDimen} height={boardDimen}>
                 <Layer>
                     {/* y will shift up as length grows until length is 13 then shifting stops */}
@@ -123,6 +128,7 @@ class Board extends React.Component {
                         updateGame={this.props.updateGame} allDominos={allDominos}
                         boneValToString={boneValToString}  /> 
                     </Group>
+                        {/* <YourTurn currentPlayer={this.props.gameState.currentPlayer} players={this.props.gameState.players} heightDimen={this.props.heightDimen} /> */}
                 </Layer>
             </Stage>
           </div>
