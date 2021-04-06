@@ -39,3 +39,9 @@
     font-weight: 900;
     cursor: pointer;
 }
+
+.game-rule{
+    margin-top: 1vh;
+    color:white;
+    font-size: large;
+}
