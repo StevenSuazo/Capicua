@@ -10,7 +10,6 @@ class OtherHands extends React.Component {
         const {board, heightDimen, boneWidth,
             boneHeight, boneValToString, allDominos} = this.props;
             
-            debugger
         const renderHandFn = (player, offSetCenter, playerIdx, currPlayerIdx) => {
             
             // {username, offset, 1, 1}

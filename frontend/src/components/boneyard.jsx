@@ -10,17 +10,16 @@ class Boneyard extends React.Component{
         this.state = {
             imageA: null,
             imageB: null,
-            drawImagexA: 300,
-            drawImageyA: 240,
-            drawImagexB: 755,
-            drawImageyB: 1,
+            drawImagexA: (this.props.heightDimen * 0.33),
+            drawImageyA: (this.props.heightDimen * 0.26),
+            drawImagexB: (this.props.heightDimen * 0.92),
+            drawImageyB: (this.props.heightDimen * 0.001),
             drawImageToggle : false,
             allPlayers: undefined,
             textProps: undefined,
             textPropsBY:undefined
         }
         this.currPlayerIdx = undefined;
-        
     }
 
     componentDidMount() {
@@ -31,14 +30,14 @@ class Boneyard extends React.Component{
         for(let i = 0; i < this.props.players.length; i++){
             allPlayers.push({ ...this.props.players[i], drawImageToggle: false  })
         }
-
+;
         textPropsBY = {
-            x: 65,
-            y: 28,
+            x: this.props.heightDimen * 0.033,
+            y: this.props.heightDimen * 0.065,
             text: `${this.props.boneyardLength}`,
             fontFamily: "'M PLUS Rounded 1c'",
             fontSize: 17,
-            fill: '#FFFFFF',
+            fill: 'white',
             stroke: 'white',
             strokeWidth: 1,
         }
@@ -194,8 +193,8 @@ class Boneyard extends React.Component{
 
                     <Image
                         image={this.state.imageB}
-                        width ={150}
-                        height={150}
+                        width ={70}
+                        height={80}
                         opacity={0.7}
                         ref={node => {
                             this.imageNodeB = node;

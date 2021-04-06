@@ -126,7 +126,7 @@ class Board extends React.Component {
                                 boneValToString={boneValToString} thisPlayerIdx={thisPlayerIdx} />
                         </Group>
                         <Boneyard boneyardLength={board.boneyard.bones.length}
-                            //  playerLength={board.players.length} 
+                            heightDimen={this.props.heightDimen}
                             player={board.currentPlayer.username}
                             currentPlayer={board.currentPlayer}
                             players={board.players}

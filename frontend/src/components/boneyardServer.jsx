@@ -13,10 +13,10 @@ class Boneyard extends React.Component{
         this.state = {
             imageA: null,
             imageB: null,
-            drawImagexA: 300,
-            drawImageyA: 240,
-            drawImagexB: 755,
-            drawImageyB: 1,
+            drawImagexA: (this.props.boardDimen * 0.33),
+            drawImageyA: (this.props.boardDimen * 0.26),
+            drawImagexB: (this.props.boardDimen * 0.90),
+            drawImageyB: (this.props.boardDimen * 0.001),
             drawImageToggle : false,
             allPlayers: undefined,
             textProps: undefined,
@@ -36,11 +36,11 @@ class Boneyard extends React.Component{
         }
 
         textPropsBY = {
-            x: 75,
-            y: 75,
+            x: this.props.boardDimen * 0.033,
+            y: this.props.boardDimen * 0.065,
             text: `${this.props.boneyardLength}`,
             fontFamily: "'M PLUS Rounded 1c'",
-            fontSize: 20,
+            fontSize: 17,
             fill: '#FFFFFF',
             stroke: 'white',
             strokeWidth: 1,
@@ -201,8 +201,8 @@ class Boneyard extends React.Component{
 
                     <Image
                         image={this.state.imageB}
-                        width ={150}
-                        height={150}
+                        width ={70}
+                        height={80}
                         opacity={0.7}
                         ref={node => {
                             this.imageNodeB = node;

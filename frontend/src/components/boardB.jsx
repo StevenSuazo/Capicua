@@ -1,7 +1,7 @@
 import React from "react";
 import { Stage, Layer, Group, Text} from 'react-konva';
 import BoneL from "../classes/bone"
-import YourTurn from './yourTurn'
+// import YourTurn from './yourTurn'
 import Hand from "./handB"
 import Arena from "./arenaB"
 import OtherHands from "./otherHandsB"
@@ -116,7 +116,7 @@ class Board extends React.Component {
                     <Boneyard boneyardLength={this.props.gameState.boneyard.bones.length}
                     inSession={this.props.gameState.inSession} 
                     currentPlayer={this.props.gameState.currentPlayer}
-                    players={this.props.gameState.players}/>
+                    players={this.props.gameState.players} boardDimen={boardDimen} />
 
                     <Group x={startBoxforHand} y={boardDimen - boneHeight}>
 
